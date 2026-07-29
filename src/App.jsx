@@ -200,7 +200,7 @@ function App() {
         <button
           className="menu-button"
           type="button"
-          aria-label="Ouvrir le menu"
+          aria-label={menuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen((open) => !open)}
         >
@@ -228,7 +228,17 @@ function App() {
 
       <aside className={`sidebar ${menuOpen ? 'is-open' : ''}`} aria-label="Catégories">
         <div className="sidebar-heading">
-          <SuitMark />
+          <div className="sidebar-heading-row">
+            <SuitMark />
+            <button
+              className="sidebar-close"
+              type="button"
+              aria-label="Fermer le menu"
+              onClick={() => setMenuOpen(false)}
+            >
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
           <p>Le règlement, catégorie par catégorie.</p>
         </div>
 
