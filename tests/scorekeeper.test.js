@@ -3,6 +3,7 @@ import assert from 'node:assert/strict'
 
 import {
   MULTIPLIERS,
+  checkScoreConsistency,
   createDeal,
   createGame,
   getCumulativeSeries,
@@ -37,6 +38,160 @@ function dealWith(input = {}) {
     ...input,
   })
 }
+
+function scoreCheckWith(input = {}) {
+  return checkScoreConsistency({
+    attackingTeamId: 'team-a',
+    contract: 80,
+    multiplier: MULTIPLIERS.NORMAL,
+    result: 'made',
+    scores: { 'team-a': 160, 'team-b': 80 },
+    ...input,
+  })
+}
+
+test('le vérificateur accepte les contrats numériques réussis et leur arrondi indépendant', () => {
+  assert.equal(scoreCheckWith().status, 'exact')
+  assert.equal(scoreCheckWith({ scores: { 'team-a': 170, 'team-b': 80 } }).status, 'exact')
+
+  assert.equal(scoreCheckWith({
+    contract: 120,
+    multiplier: MULTIPLIERS.COINCHE,
+    scores: { 'team-a': 370, 'team-b': 30 },
+  }).status, 'exact')
+
+  assert.equal(scoreCheckWith({
+    contract: 160,
+    scores: { 'team-a': 320, 'team-b': 0 },
+  }).status, 'exact')
+})
+
+test('le vérificateur applique les formules de chute des contrats numériques', () => {
+  const cases = [
+    [MULTIPLIERS.NORMAL, 0, 160],
+    [MULTIPLIERS.COINCHE, 0, 360],
+    [MULTIPLIERS.SURCOINCHE, 0, 560],
+  ]
+
+  for (const [multiplier, attackingScore, defendingScore] of cases) {
+    assert.equal(scoreCheckWith({
+      contract: 100,
+      multiplier,
+      result: 'failed',
+      scores: { 'team-a': attackingScore, 'team-b': defendingScore },
+    }).status, 'exact')
+  }
+})
+
+test('le vérificateur tient compte implicitement de la belote-rebelote', () => {
+  const attackingBelote = scoreCheckWith({
+    contract: 100,
+    result: 'failed',
+    scores: { 'team-a': 20, 'team-b': 160 },
+  })
+  assert.equal(attackingBelote.status, 'exact')
+  assert.deepEqual(attackingBelote.possibleBeloteOwners, ['team-a'])
+
+  const defendingBelote = scoreCheckWith({
+    contract: 100,
+    result: 'failed',
+    scores: { 'team-a': 0, 'team-b': 180 },
+  })
+  assert.equal(defendingBelote.status, 'exact')
+  assert.deepEqual(defendingBelote.possibleBeloteOwners, ['team-b'])
+})
+
+test('le vérificateur applique les scores particuliers du capot', () => {
+  const madeScores = [
+    [MULTIPLIERS.NORMAL, 410],
+    [MULTIPLIERS.COINCHE, 660],
+    [MULTIPLIERS.SURCOINCHE, 1160],
+  ]
+  const failedScores = [
+    [MULTIPLIERS.NORMAL, 160],
+    [MULTIPLIERS.COINCHE, 320],
+    [MULTIPLIERS.SURCOINCHE, 640],
+  ]
+
+  for (const [multiplier, attackingScore] of madeScores) {
+    assert.equal(scoreCheckWith({
+      contract: 'capot',
+      multiplier,
+      scores: { 'team-a': attackingScore, 'team-b': 0 },
+    }).status, 'exact')
+  }
+
+  for (const [multiplier, defendingScore] of failedScores) {
+    assert.equal(scoreCheckWith({
+      contract: 'capot',
+      multiplier,
+      result: 'failed',
+      scores: { 'team-a': 0, 'team-b': defendingScore },
+    }).status, 'exact')
+  }
+
+  assert.equal(scoreCheckWith({
+    contract: 'capot',
+    scores: { 'team-a': 430, 'team-b': 0 },
+  }).status, 'exact')
+  assert.equal(scoreCheckWith({
+    contract: 'capot',
+    scores: { 'team-a': 410, 'team-b': 20 },
+  }).status, 'exact')
+})
+
+test('un surplus est signalé comme une pénalité manuelle possible', () => {
+  const onePointPenalty = scoreCheckWith({
+    scores: { 'team-a': 171, 'team-b': 80 },
+  })
+  assert.equal(onePointPenalty.status, 'penalty-required')
+  assert.deepEqual(onePointPenalty.baseScores, { 'team-a': 170, 'team-b': 80 })
+  assert.deepEqual(onePointPenalty.penalties, { 'team-a': 1, 'team-b': 0 })
+  assert.equal(onePointPenalty.totalPenalty, 1)
+
+  const apparentDoubleBelote = scoreCheckWith({
+    contract: 100,
+    result: 'failed',
+    scores: { 'team-a': 20, 'team-b': 180 },
+  })
+  assert.equal(apparentDoubleBelote.status, 'penalty-required')
+  assert.equal(apparentDoubleBelote.totalPenalty, 20)
+  assert.deepEqual(
+    new Set(apparentDoubleBelote.possibleBeloteOwners),
+    new Set(['team-a', 'team-b']),
+  )
+})
+
+test('un score inférieur à toute formule réglementaire est incohérent', () => {
+  const numeric = scoreCheckWith({ scores: { 'team-a': 150, 'team-b': 100 } })
+  assert.equal(numeric.status, 'inconsistent')
+  assert.ok(numeric.totalShortfall > 0)
+
+  assert.equal(scoreCheckWith({
+    contract: 'capot',
+    scores: { 'team-a': 400, 'team-b': 0 },
+  }).status, 'inconsistent')
+})
+
+test("le vérificateur respecte l'identité de l'équipe attaquante", () => {
+  const result = scoreCheckWith({
+    attackingTeamId: 'team-b',
+    result: 'failed',
+    scores: { 'team-a': 160, 'team-b': 0 },
+  })
+
+  assert.equal(result.status, 'exact')
+  assert.equal(result.attackingTeamId, 'team-b')
+  assert.equal(result.defendingTeamId, 'team-a')
+})
+
+test('le vérificateur distingue saisie incomplète et saisie invalide', () => {
+  assert.equal(scoreCheckWith({ scores: { 'team-a': '', 'team-b': 80 } }).status, 'incomplete')
+  assert.equal(scoreCheckWith({ scores: { 'team-a': -1, 'team-b': 80 } }).status, 'invalid-input')
+  assert.equal(scoreCheckWith({ scores: { 'team-a': 160.5, 'team-b': 80 } }).status, 'invalid-input')
+  assert.equal(scoreCheckWith({ multiplier: 3 }).status, 'invalid-input')
+  assert.equal(scoreCheckWith({ attackingTeamId: 'équipe-inconnue' }).status, 'invalid-input')
+})
 
 test('les cumuls utilisent exclusivement les scores manuels', () => {
   const game = gameWith()

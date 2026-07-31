@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import {
   CONTRACT_AMOUNTS,
+  checkScoreConsistency,
   createDeal,
   createGame,
   getCumulativeSeries,
@@ -932,6 +933,7 @@ function ChoiceStage({ title, hint, children }) {
 }
 
 function ScoreEntry({ game, draft, onChange, onBack, onSave }) {
+  const [showConsistencyDialog, setShowConsistencyDialog] = useState(false)
   const phase = draft.scorePhase ?? 'result'
   const update = (values) => onChange((current) => ({ ...current, ...values }))
 
@@ -961,6 +963,42 @@ function ScoreEntry({ game, draft, onChange, onBack, onSave }) {
 
   const canSave =
     draft.result && draft.scores[TEAM_A] !== '' && draft.scores[TEAM_B] !== ''
+
+  const consistency = useMemo(() => checkScoreConsistency({
+    attackingTeamId: draft.attackingTeamId,
+    contract: draft.contract,
+    multiplier: draft.multiplier,
+    result: draft.result,
+    scores: draft.scores,
+  }), [
+    draft.attackingTeamId,
+    draft.contract,
+    draft.multiplier,
+    draft.result,
+    draft.scores,
+  ])
+
+  const needsReview = canSave && consistency.status !== 'exact'
+  const consistencyLabel = !canSave
+    ? 'Saisissez les deux scores'
+    : consistency.status === 'exact'
+      ? 'Score cohérent avec le règlement'
+      : consistency.status === 'penalty-required'
+        ? `${formatNumber(consistency.totalPenalty)} point${consistency.totalPenalty > 1 ? 's' : ''} de pénalité à confirmer`
+        : 'Aucun calcul réglementaire compatible'
+
+  const consistencyDialogBody = consistency.status === 'penalty-required'
+    ? `L’écart de ${formatNumber(consistency.totalPenalty)} point${consistency.totalPenalty > 1 ? 's' : ''} nécessite une pénalité manuelle. Vérifiez qu’elle a été acceptée par les deux adversaires.`
+    : 'Ces montants ne correspondent à aucun score réglementaire compatible avec l’annonce, son résultat et son niveau de coinche. Vérifiez les informations saisies.'
+
+  const requestSave = () => {
+    if (!canSave) return
+    if (needsReview) {
+      setShowConsistencyDialog(true)
+      return
+    }
+    onSave()
+  }
 
   return (
     <div className="score-game-page entry-page score-entry-page">
@@ -1024,12 +1062,46 @@ function ScoreEntry({ game, draft, onChange, onBack, onSave }) {
               ))}
             </div>
 
-            <button className="score-primary-button save-deal-button" type="button" disabled={!canSave} onClick={onSave}>
-              {draft.editingDealId ? 'Enregistrer les modifications' : 'Enregistrer la donne'}
+            <p className="score-visually-hidden" id="score-consistency-status">
+              {consistencyLabel}
+            </p>
+
+            <button
+              className={`score-primary-button save-deal-button${needsReview ? ' needs-review' : ''}`}
+              type="button"
+              disabled={!canSave}
+              aria-describedby="score-consistency-status"
+              onClick={requestSave}
+            >
+              <span>
+                {needsReview
+                  ? 'Vérifier le score'
+                  : draft.editingDealId
+                    ? 'Enregistrer les modifications'
+                    : 'Enregistrer la donne'}
+              </span>
+              <small aria-hidden="true">
+                {consistency.status === 'exact' && canSave ? '✓ ' : needsReview ? '⚠ ' : ''}
+                {consistencyLabel}
+              </small>
             </button>
           </section>
         )}
       </main>
+
+      {showConsistencyDialog && (
+        <ConfirmDialog
+          title="Vérifier le score"
+          body={consistencyDialogBody}
+          label="Enregistrer quand même"
+          cancelLabel="Corriger"
+          onConfirm={() => {
+            setShowConsistencyDialog(false)
+            onSave()
+          }}
+          onCancel={() => setShowConsistencyDialog(false)}
+        />
+      )}
     </div>
   )
 }
@@ -1158,17 +1230,31 @@ function ScoreEmpty({ title, action, onAction }) {
   )
 }
 
-function ConfirmDialog({ title, body, label, danger = false, onConfirm, onCancel }) {
+function ConfirmDialog({
+  title,
+  body,
+  label,
+  cancelLabel = 'Annuler',
+  danger = false,
+  onConfirm,
+  onCancel,
+}) {
   return (
     <div className="confirm-backdrop" role="presentation" onMouseDown={(event) => {
       if (event.target === event.currentTarget) onCancel()
     }}>
-      <section className="confirm-dialog" role="alertdialog" aria-modal="true" aria-labelledby="confirm-title">
+      <section
+        className="confirm-dialog"
+        role="alertdialog"
+        aria-modal="true"
+        aria-labelledby="confirm-title"
+        aria-describedby="confirm-body"
+      >
         <p className="score-kicker">Confirmation</p>
         <h2 id="confirm-title">{title}</h2>
-        <p>{body}</p>
+        <p id="confirm-body">{body}</p>
         <div>
-          <button type="button" onClick={onCancel}>Annuler</button>
+          <button type="button" autoFocus onClick={onCancel}>{cancelLabel}</button>
           <button className={danger ? 'is-danger' : 'is-primary'} type="button" onClick={onConfirm}>{label}</button>
         </div>
       </section>

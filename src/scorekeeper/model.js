@@ -137,6 +137,239 @@ function normalizeResult(input) {
   return normalized
 }
 
+function isMissing(value) {
+  return value === undefined || value === null || (
+    typeof value === 'string' && value.trim() === ''
+  )
+}
+
+function roundedCardPoints(value) {
+  return Math.floor((value + 5) / 10) * 10
+}
+
+function scoreCandidate(attackingTeamId, defendingTeamId, attackingScore, defendingScore, beloteOwnerTeamId) {
+  return {
+    scores: {
+      [attackingTeamId]: attackingScore,
+      [defendingTeamId]: defendingScore,
+    },
+    beloteOwnerTeamId,
+  }
+}
+
+function scoreCandidates({ attackingTeamId, contract, multiplier, result }) {
+  const defendingTeamId = TEAM_IDS.find((teamId) => teamId !== attackingTeamId)
+  const beloteOwners = [null, attackingTeamId, defendingTeamId]
+  const candidates = []
+  const seen = new Set()
+
+  const addCandidate = (attackingScore, defendingScore, beloteOwnerTeamId) => {
+    const key = `${attackingScore}:${defendingScore}:${beloteOwnerTeamId ?? 'none'}`
+    if (seen.has(key)) return
+    seen.add(key)
+    candidates.push(scoreCandidate(
+      attackingTeamId,
+      defendingTeamId,
+      attackingScore,
+      defendingScore,
+      beloteOwnerTeamId,
+    ))
+  }
+
+  for (const beloteOwnerTeamId of beloteOwners) {
+    const attackingBelote = beloteOwnerTeamId === attackingTeamId ? 20 : 0
+    const defendingBelote = beloteOwnerTeamId === defendingTeamId ? 20 : 0
+
+    if (contract !== 'capot' && result === 'made') {
+      for (let exactAttackingPoints = 0; exactAttackingPoints <= 162; exactAttackingPoints += 1) {
+        if (exactAttackingPoints + attackingBelote < contract) continue
+
+        addCandidate(
+          roundedCardPoints(exactAttackingPoints) + contract * multiplier + attackingBelote,
+          roundedCardPoints(162 - exactAttackingPoints) + defendingBelote,
+          beloteOwnerTeamId,
+        )
+      }
+      continue
+    }
+
+    if (contract !== 'capot') {
+      addCandidate(
+        attackingBelote,
+        160 + (multiplier === MULTIPLIERS.NORMAL ? 0 : contract * multiplier) + defendingBelote,
+        beloteOwnerTeamId,
+      )
+      continue
+    }
+
+    if (result === 'made') {
+      addCandidate(
+        160 + 250 * multiplier + attackingBelote,
+        defendingBelote,
+        beloteOwnerTeamId,
+      )
+      continue
+    }
+
+    const failedCapotScore = {
+      [MULTIPLIERS.NORMAL]: 160,
+      [MULTIPLIERS.COINCHE]: 320,
+      [MULTIPLIERS.SURCOINCHE]: 640,
+    }[multiplier]
+
+    addCandidate(
+      attackingBelote,
+      failedCapotScore + defendingBelote,
+      beloteOwnerTeamId,
+    )
+  }
+
+  return candidates
+}
+
+function uniqueBeloteOwners(candidates) {
+  return [...new Set(candidates.map((candidate) => candidate.beloteOwnerTeamId))]
+}
+
+/**
+ * Vérifie qu'une paire de scores peut provenir du contrat et de son résultat.
+ *
+ * Les scores restent manuels. Une valeur supérieure à un score réglementaire
+ * de base est donc signalée comme une pénalité possible, jamais rejetée. La
+ * belote-rebelote n'ayant pas de champ dédié, ses trois états possibles
+ * (aucune, attaque, défense) sont examinés implicitement.
+ */
+export function checkScoreConsistency(input = {}) {
+  const attackingTeamInput = input.attackingTeamId ?? input.attackerTeamId ?? input.attacker
+  const contractInput = input.contract ?? input.amount
+  const multiplierInput = input.multiplier ?? input.coinche
+  const resultInput = input.result ?? input.outcome
+
+  if (
+    isMissing(attackingTeamInput) ||
+    isMissing(contractInput) ||
+    isMissing(multiplierInput) ||
+    (isMissing(resultInput) && typeof input.success !== 'boolean')
+  ) {
+    return { status: 'incomplete' }
+  }
+
+  if (!TEAM_IDS.includes(attackingTeamInput)) {
+    return { status: 'invalid-input' }
+  }
+
+  const attackingScoreInput = scoreInput(input, attackingTeamInput)
+  const defendingTeamInput = TEAM_IDS.find((teamId) => teamId !== attackingTeamInput)
+  const defendingScoreInput = scoreInput(input, defendingTeamInput)
+
+  if (isMissing(attackingScoreInput) || isMissing(defendingScoreInput)) {
+    return { status: 'incomplete' }
+  }
+
+  let contract
+  let multiplier
+  let result
+  let attackingScore
+  let defendingScore
+
+  try {
+    contract = normalizeContract(contractInput)
+    multiplier = normalizeMultiplier(multiplierInput)
+    result = normalizeResult(input)
+    attackingScore = manualScore(attackingScoreInput, "Le score de l'équipe attaquante")
+    defendingScore = manualScore(defendingScoreInput, "Le score de l'équipe en défense")
+  } catch {
+    return { status: 'invalid-input' }
+  }
+
+  const attackingTeamId = attackingTeamInput
+  const defendingTeamId = TEAM_IDS.find((teamId) => teamId !== attackingTeamId)
+  const scores = {
+    [attackingTeamId]: attackingScore,
+    [defendingTeamId]: defendingScore,
+  }
+  const candidates = scoreCandidates({ attackingTeamId, contract, multiplier, result })
+  const exactCandidates = candidates.filter((candidate) => (
+    candidate.scores[attackingTeamId] === attackingScore &&
+    candidate.scores[defendingTeamId] === defendingScore
+  ))
+
+  if (exactCandidates.length) {
+    return {
+      status: 'exact',
+      attackingTeamId,
+      defendingTeamId,
+      scores,
+      baseScores: { ...scores },
+      penalties: { [attackingTeamId]: 0, [defendingTeamId]: 0 },
+      totalPenalty: 0,
+      possibleBeloteOwners: uniqueBeloteOwners(exactCandidates),
+    }
+  }
+
+  const penaltyCandidates = candidates
+    .filter((candidate) => (
+      candidate.scores[attackingTeamId] <= attackingScore &&
+      candidate.scores[defendingTeamId] <= defendingScore
+    ))
+    .map((candidate) => {
+      const penalties = {
+        [attackingTeamId]: attackingScore - candidate.scores[attackingTeamId],
+        [defendingTeamId]: defendingScore - candidate.scores[defendingTeamId],
+      }
+      return {
+        candidate,
+        penalties,
+        totalPenalty: penalties[attackingTeamId] + penalties[defendingTeamId],
+      }
+    })
+    .sort((left, right) => left.totalPenalty - right.totalPenalty)
+
+  if (penaltyCandidates.length) {
+    const best = penaltyCandidates[0]
+    const equallyClose = penaltyCandidates.filter(({ totalPenalty }) => (
+      totalPenalty === best.totalPenalty
+    ))
+
+    return {
+      status: 'penalty-required',
+      attackingTeamId,
+      defendingTeamId,
+      scores,
+      baseScores: { ...best.candidate.scores },
+      penalties: best.penalties,
+      totalPenalty: best.totalPenalty,
+      possibleBeloteOwners: uniqueBeloteOwners(
+        equallyClose.map(({ candidate }) => candidate),
+      ),
+    }
+  }
+
+  const closest = candidates
+    .map((candidate) => {
+      const shortfalls = {
+        [attackingTeamId]: Math.max(0, candidate.scores[attackingTeamId] - attackingScore),
+        [defendingTeamId]: Math.max(0, candidate.scores[defendingTeamId] - defendingScore),
+      }
+      return {
+        candidate,
+        shortfalls,
+        totalShortfall: shortfalls[attackingTeamId] + shortfalls[defendingTeamId],
+      }
+    })
+    .sort((left, right) => left.totalShortfall - right.totalShortfall)[0]
+
+  return {
+    status: 'inconsistent',
+    attackingTeamId,
+    defendingTeamId,
+    scores,
+    closestBaseScores: { ...closest.candidate.scores },
+    shortfalls: closest.shortfalls,
+    totalShortfall: closest.totalShortfall,
+  }
+}
+
 function scoreInput(input, teamId) {
   const scores = input.scores ?? {}
   if (teamId === 'team-a') {
