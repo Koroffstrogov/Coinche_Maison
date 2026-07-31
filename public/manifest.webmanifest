@@ -1,7 +1,7 @@
 {
   "name": "Règles de la Coinche",
   "short_name": "Coinche",
-  "description": "Le règlement de la Coinche — variante maison.",
+  "description": "Le règlement et le compteur de partie de notre Coinche — variante maison.",
   "lang": "fr",
   "start_url": "/",
   "scope": "/",

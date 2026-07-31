@@ -27,7 +27,7 @@ html {
 
 body {
   margin: 0;
-  min-width: 320px;
+  min-width: 0;
   min-height: 100vh;
   background:
     radial-gradient(circle at 10% 0%, rgba(20, 61, 43, 0.08), transparent 30rem),
@@ -285,10 +285,33 @@ a:focus-visible {
   justify-content: center;
 }
 
+.category-nav .nav-scorekeeper {
+  margin-top: 0.35rem;
+  color: white;
+  background: var(--green);
+  font-weight: 800;
+}
+
+.category-nav .nav-scorekeeper:hover {
+  background: #1b4d37;
+}
+
+.category-nav .nav-scorekeeper span {
+  color: white;
+  border-color: rgba(255, 255, 255, 0.35);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
 .main-content {
   min-height: 100vh;
   margin-left: 18rem;
   padding-top: 4.5rem;
+}
+
+.main-content.score-main {
+  margin-left: 0;
+  padding-top: 0;
 }
 
 .page {
@@ -379,6 +402,31 @@ a:focus-visible {
 
 .primary-action span {
   font-size: 1.25rem;
+}
+
+.hero-actions {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.hero-actions .primary-action {
+  margin-top: 0;
+}
+
+.secondary-action {
+  min-height: 3.25rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 0.75rem;
+  color: white;
+  background: transparent;
+  font-weight: 800;
+  cursor: pointer;
 }
 
 .home-intro {
@@ -580,6 +628,114 @@ a:focus-visible {
 
 .rule-content strong {
   color: var(--green);
+}
+
+.rule-examples {
+  margin: 0.4rem 0 3rem;
+  padding: clamp(1.2rem, 3vw, 2rem);
+  border: 1px solid #cdddcf;
+  border-radius: 1.2rem;
+  background: var(--green-light);
+}
+
+.examples-heading {
+  max-width: 42rem;
+  margin-bottom: 1.35rem;
+}
+
+.examples-heading .eyebrow {
+  margin-bottom: 0.55rem;
+}
+
+.examples-heading h2 {
+  margin: 0;
+  color: var(--green);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.75rem, 4vw, 2.35rem);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+}
+
+.examples-heading > p:last-child {
+  margin: 0.65rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.examples-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.example-card {
+  min-width: 0;
+  padding: 1.15rem;
+  border: 1px solid var(--line);
+  border-radius: 0.9rem;
+  background: var(--paper);
+  box-shadow: 0 5px 18px rgba(31, 45, 37, 0.035);
+}
+
+.example-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.8rem;
+}
+
+.example-meta span {
+  padding: 0.3rem 0.55rem;
+  border-radius: 999px;
+  color: var(--green);
+  background: #e8f0e9;
+  font-size: 0.67rem;
+  font-weight: 850;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.example-meta span:last-child {
+  color: #864b43;
+  background: #f4e7e3;
+}
+
+.example-card h3 {
+  margin: 0 0 0.9rem;
+  color: var(--green);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.2rem;
+  line-height: 1.25;
+}
+
+.example-card p {
+  margin: 0;
+  color: #39483f;
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.example-card p + p {
+  margin-top: 0.85rem;
+}
+
+.example-card strong {
+  display: block;
+  margin-bottom: 0.2rem;
+  color: var(--green);
+  font-size: 0.66rem;
+  font-weight: 850;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.example-application {
+  padding: 0.75rem 0.8rem;
+  border-left: 3px solid var(--red);
+  border-radius: 0 0.5rem 0.5rem 0;
+  background: #f8f4ec;
 }
 
 .table-scroll {
@@ -792,6 +948,15 @@ a:focus-visible {
     justify-content: space-between;
   }
 
+  .hero-actions {
+    display: grid;
+  }
+
+  .hero-actions .primary-action,
+  .hero-actions .secondary-action {
+    width: 100%;
+  }
+
   .home-intro {
     margin-bottom: 2.25rem;
   }
@@ -826,6 +991,19 @@ a:focus-visible {
 
   .rule-page > .rule-content {
     padding-top: 1.5rem;
+  }
+
+  .rule-examples {
+    margin-bottom: 2.25rem;
+    padding: 1rem;
+  }
+
+  .examples-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .example-card {
+    padding: 1rem;
   }
 
   .table-scroll {

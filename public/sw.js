@@ -1,4 +1,4 @@
-const CACHE_NAME = 'coinche-regles-v1'
+const CACHE_NAME = 'coinche-table-v2'
 const APP_SHELL = [
   '/',
   '/index.html',

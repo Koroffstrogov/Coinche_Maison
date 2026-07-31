@@ -2,6 +2,8 @@ import { useEffect, useMemo, useState } from 'react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import rulesSource from './content/regles-coinche-variante-maison.md?raw'
+import { ruleExamples } from './content/ruleExamples'
+import { Scorekeeper } from './scorekeeper/Scorekeeper'
 
 const groupDefinitions = [
   { id: 'commencer', title: 'Commencer', sections: [1, 2, 3, 4] },
@@ -73,6 +75,14 @@ function parseRules(source) {
 function readRoute() {
   const hash = window.location.hash.replace(/^#/, '') || '/'
 
+  if (hash === '/compteur') return { type: 'scoreHome' }
+  if (hash === '/compteur/partie') return { type: 'scoreGame' }
+  if (hash.startsWith('/compteur/archives/')) {
+    return {
+      type: 'scoreArchive',
+      archiveId: decodeURIComponent(hash.replace('/compteur/archives/', '')),
+    }
+  }
   if (hash === '/reglement') return { type: 'full' }
   if (hash.startsWith('/categorie/')) {
     return { type: 'section', slug: hash.replace('/categorie/', '') }
@@ -96,6 +106,46 @@ function MarkdownContent({ children }) {
     >
       {children}
     </ReactMarkdown>
+  )
+}
+
+function RuleExamples({ sectionNumber }) {
+  const examples = ruleExamples[sectionNumber]
+
+  if (!examples?.length) return null
+
+  const headingId = `examples-article-${sectionNumber}`
+
+  return (
+    <aside className="rule-examples" aria-labelledby={headingId}>
+      <div className="examples-heading">
+        <p className="eyebrow">Pour trancher à table</p>
+        <h2 id={headingId}>Exemples de situations</h2>
+        <p>
+          Ces cas illustrent l’article. Le texte du règlement reste la référence.
+        </p>
+      </div>
+
+      <div className="examples-grid">
+        {examples.map((example, index) => (
+          <section className="example-card" key={`${example.reference}-${index}`}>
+            <div className="example-meta">
+              <span>Article {example.reference}</span>
+              <span>{example.kind}</span>
+            </div>
+            <h3>{example.title}</h3>
+            <p>
+              <strong>Situation</strong>
+              {example.situation}
+            </p>
+            <p className="example-application">
+              <strong>Application</strong>
+              {example.application}
+            </p>
+          </section>
+        ))}
+      </div>
+    </aside>
   )
 }
 
@@ -159,6 +209,7 @@ function App() {
     route.type === 'section'
       ? sections.find((section) => section.slug === route.slug)
       : null
+  const isScoreRoute = route.type.startsWith('score')
 
   useEffect(() => {
     const handleHashChange = () => {
@@ -172,7 +223,13 @@ function App() {
   }, [])
 
   useEffect(() => {
-    if (route.type === 'full') {
+    if (route.type === 'scoreHome') {
+      document.title = 'Compteur de partie · Coinche'
+    } else if (route.type === 'scoreGame') {
+      document.title = 'Partie en cours · Coinche'
+    } else if (route.type === 'scoreArchive') {
+      document.title = 'Bilan de partie · Coinche'
+    } else if (route.type === 'full') {
       document.title = 'Règlement complet · Coinche'
     } else if (activeSection) {
       document.title = `${activeSection.title} · Coinche`
@@ -196,7 +253,7 @@ function App() {
         Aller au contenu
       </a>
 
-      <header className="topbar">
+      {!isScoreRoute && <header className="topbar">
         <button
           className="menu-button"
           type="button"
@@ -218,15 +275,15 @@ function App() {
         </button>
 
         <InstallButton />
-      </header>
+      </header>}
 
-      <div
+      {!isScoreRoute && <div
         className={`menu-backdrop ${menuOpen ? 'is-visible' : ''}`}
         aria-hidden="true"
         onClick={() => setMenuOpen(false)}
-      />
+      />}
 
-      <aside className={`sidebar ${menuOpen ? 'is-open' : ''}`} aria-label="Catégories">
+      {!isScoreRoute && <aside className={`sidebar ${menuOpen ? 'is-open' : ''}`} aria-label="Catégories">
         <div className="sidebar-heading">
           <div className="sidebar-heading-row">
             <SuitMark />
@@ -249,6 +306,15 @@ function App() {
             onClick={() => navigate('/')}
           >
             Accueil
+          </button>
+
+          <button
+            type="button"
+            className="nav-scorekeeper"
+            onClick={() => navigate('/compteur')}
+          >
+            <span>+</span>
+            Compter une partie
           </button>
 
           {groupDefinitions.map((group) => (
@@ -279,9 +345,9 @@ function App() {
             Règlement complet
           </button>
         </nav>
-      </aside>
+      </aside>}
 
-      <main id="contenu" className="main-content">
+      <main id="contenu" className={isScoreRoute ? 'main-content score-main' : 'main-content'}>
         {route.type === 'home' && (
           <HomePage sections={sections} navigate={navigate} />
         )}
@@ -296,6 +362,10 @@ function App() {
 
         {route.type === 'full' && (
           <FullRules sections={sections} navigate={navigate} />
+        )}
+
+        {isScoreRoute && (
+          <Scorekeeper route={route} navigate={navigate} />
         )}
       </main>
     </div>
@@ -312,10 +382,15 @@ function HomePage({ sections, navigate }) {
           Retrouvez chaque règle rapidement pendant une partie, ou parcourez le
           règlement complet d’une seule traite.
         </p>
-        <button className="primary-action" type="button" onClick={() => navigate('/reglement')}>
-          Lire tout le règlement
-          <span aria-hidden="true">→</span>
-        </button>
+        <div className="hero-actions">
+          <button className="primary-action" type="button" onClick={() => navigate('/compteur')}>
+            Compter une partie
+            <span aria-hidden="true">→</span>
+          </button>
+          <button className="secondary-action" type="button" onClick={() => navigate('/reglement')}>
+            Lire le règlement
+          </button>
+        </div>
       </section>
 
       <section className="home-intro" aria-label="Informations principales">
@@ -384,6 +459,8 @@ function SectionPage({ section, sections, navigate }) {
       <div className="rule-content">
         <MarkdownContent>{section.markdown}</MarkdownContent>
       </div>
+
+      <RuleExamples sectionNumber={section.number} />
 
       <nav className="page-navigation" aria-label="Articles voisins">
         {previous ? (
