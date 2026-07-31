@@ -73,7 +73,6 @@ function createEmptyDraft() {
   return {
     editingDealId: null,
     step: 'contract',
-    contractPhase: 'team',
     scorePhase: 'result',
     attackingTeamId: null,
     contract: null,
@@ -88,8 +87,7 @@ function createEmptyDraft() {
 function draftFromDeal(deal) {
   return {
     editingDealId: deal.id,
-    step: 'score',
-    contractPhase: 'team',
+    step: 'contract',
     scorePhase: 'scores',
     attackingTeamId: deal.attackingTeamId,
     contract: deal.contract,
@@ -207,7 +205,12 @@ export function Scorekeeper({ route, navigate }) {
 
   const editDeal = (deal) => {
     setDraft(draftFromDeal(deal))
-    setGameView('score')
+    setGameView('contract')
+  }
+
+  const returnToContract = () => {
+    setDraft((current) => ({ ...current, step: 'contract' }))
+    setGameView('contract')
   }
 
   const deleteDeal = (dealId) => {
@@ -432,7 +435,7 @@ export function Scorekeeper({ route, navigate }) {
           game={activeGame}
           draft={activeGame.draft ?? createEmptyDraft()}
           onChange={setDraft}
-          onBack={() => setGameView('contract')}
+          onBack={returnToContract}
           onSave={saveDraftDeal}
         />
       )
@@ -766,81 +769,123 @@ function ScoreGameHeader({ title, onBack, action, onAction }) {
 }
 
 function ContractEntry({ game, draft, onChange, onBack, onContinue }) {
-  const phase = draft.contractPhase ?? 'team'
   const update = (values) => onChange((current) => ({ ...current, ...values }))
+  const editingIndex = draft.editingDealId
+    ? game.deals.findIndex((deal) => deal.id === draft.editingDealId)
+    : -1
+  const dealNumber = editingIndex >= 0 ? editingIndex + 1 : game.deals.length + 1
+  const canContinue = Boolean(
+    draft.attackingTeamId && draft.contract && draft.suit && draft.multiplier,
+  )
 
-  const chooseTeam = (teamId) => update({ attackingTeamId: teamId, contractPhase: 'amount' })
-  const chooseContract = (contract) => update({ contract, contractPhase: 'suit' })
-  const chooseSuit = (suit) => update({ suit, contractPhase: 'multiplier' })
-  const chooseMultiplier = (multiplier) => {
+  const continueToScores = () => {
+    if (!canContinue) return
     onChange((current) => ({
       ...current,
-      multiplier,
       step: 'score',
-      scorePhase: 'result',
       activeScoreTeamId: current.attackingTeamId ?? TEAM_A,
     }))
     onContinue()
   }
 
   return (
-    <div className="score-game-page entry-page">
-      <ScoreGameHeader
-        title={draft.editingDealId ? 'Modifier la donne' : `Donne ${game.deals.length + 1}`}
-        onBack={onBack}
-      />
-      <main className="entry-content">
-        <StepIndicator current={1} />
-        <DealSummary game={game} draft={draft} editable onJump={(nextPhase) => update({ contractPhase: nextPhase })} />
+    <div className="score-game-page entry-page contract-entry-page">
+      <header className="contract-entry-header">
+        <button type="button" onClick={onBack} aria-label="Retour">←</button>
+        <strong>Donne {dealNumber}</strong>
+        <span aria-hidden="true" />
+      </header>
 
-        {phase === 'team' && (
-          <ChoiceStage title="Qui porte le contrat ?" hint="Équipe attaquante">
-            <div className="large-choice-grid two">
-              {game.teams.map((team) => (
-                <button type="button" key={team.id} onClick={() => chooseTeam(team.id)}>
-                  <span>Équipe</span><strong>{team.name}</strong>
-                </button>
-              ))}
-            </div>
-          </ChoiceStage>
-        )}
+      <main className="contract-entry-content">
+        <fieldset className="contract-choice-group contract-team-grid">
+          <legend className="score-visually-hidden">Équipe attaquante</legend>
+          {game.teams.map((team) => {
+            const selected = draft.attackingTeamId === team.id
+            return (
+              <button
+                type="button"
+                key={team.id}
+                className={selected ? 'is-selected' : ''}
+                aria-pressed={selected}
+                onClick={() => update({ attackingTeamId: team.id })}
+              >
+                <span>{team.name}</span>
+              </button>
+            )
+          })}
+        </fieldset>
 
-        {phase === 'amount' && (
-          <ChoiceStage title="Quelle annonce ?" hint="Valeur du contrat">
-            <div className="amount-grid">
-              {CONTRACT_AMOUNTS.map((amount) => (
-                <button type="button" key={amount} onClick={() => chooseContract(amount)}>{amount}</button>
-              ))}
-              <button className="capot-choice" type="button" onClick={() => chooseContract('capot')}>Capot</button>
-            </div>
-          </ChoiceStage>
-        )}
+        <fieldset className="contract-choice-group contract-amount-grid">
+          <legend className="score-visually-hidden">Annonce</legend>
+          {CONTRACT_AMOUNTS.map((amount) => {
+            const selected = draft.contract === amount
+            return (
+              <button
+                type="button"
+                key={amount}
+                className={selected ? 'is-selected' : ''}
+                aria-pressed={selected}
+                onClick={() => update({ contract: amount })}
+              >
+                {amount}
+              </button>
+            )
+          })}
+          <button
+            className={`is-capot${draft.contract === 'capot' ? ' is-selected' : ''}`}
+            type="button"
+            aria-pressed={draft.contract === 'capot'}
+            onClick={() => update({ contract: 'capot' })}
+          >
+            Capot
+          </button>
+        </fieldset>
 
-        {phase === 'suit' && (
-          <ChoiceStage title="Dans quelle couleur ?" hint="Couleur d’atout">
-            <div className="suit-choice-grid">
-              {suitOptions.map((suit) => (
-                <button type="button" key={suit.value} onClick={() => chooseSuit(suit.value)}>
-                  <span className={suit.red ? 'is-red' : ''} aria-hidden="true">{suit.symbol}</span>
-                  <strong>{suit.label}</strong>
-                </button>
-              ))}
-            </div>
-          </ChoiceStage>
-        )}
+        <fieldset className="contract-choice-group contract-suit-grid">
+          <legend className="score-visually-hidden">Couleur d’atout</legend>
+          {suitOptions.map((suit) => {
+            const selected = draft.suit === suit.value
+            return (
+              <button
+                type="button"
+                key={suit.value}
+                className={selected ? 'is-selected' : ''}
+                aria-pressed={selected}
+                onClick={() => update({ suit: suit.value })}
+              >
+                <span className={suit.red && !selected ? 'is-red' : ''} aria-hidden="true">{suit.symbol}</span>
+                <strong>{suit.label}</strong>
+              </button>
+            )
+          })}
+        </fieldset>
 
-        {phase === 'multiplier' && (
-          <ChoiceStage title="État du contrat" hint="Dernière annonce">
-            <div className="large-choice-grid three">
-              {multiplierOptions.map((option) => (
-                <button type="button" key={option.value} onClick={() => chooseMultiplier(option.value)}>
-                  <strong>{option.label}</strong>
-                  <span>{option.value === 1 ? '×1' : `×${option.value}`}</span>
-                </button>
-              ))}
-            </div>
-          </ChoiceStage>
-        )}
+        <fieldset className="contract-choice-group contract-multiplier-grid">
+          <legend className="score-visually-hidden">État du contrat</legend>
+          {multiplierOptions.map((option) => {
+            const selected = draft.multiplier === option.value
+            return (
+              <button
+                type="button"
+                key={option.value}
+                className={selected ? 'is-selected' : ''}
+                aria-pressed={selected}
+                onClick={() => update({ multiplier: option.value })}
+              >
+                {option.label}
+              </button>
+            )
+          })}
+        </fieldset>
+
+        <button
+          className="score-primary-button contract-continue-button"
+          type="button"
+          disabled={!canContinue}
+          onClick={continueToScores}
+        >
+          Continuer <span aria-hidden="true">→</span>
+        </button>
       </main>
     </div>
   )

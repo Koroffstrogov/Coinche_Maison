@@ -665,6 +665,193 @@
     max(1rem, env(safe-area-inset-left, 0));
 }
 
+.score-visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+}
+
+.contract-entry-header {
+  position: relative;
+  z-index: 5;
+  display: grid;
+  min-height: calc(3rem + env(safe-area-inset-top, 0));
+  grid-template-columns: 3rem minmax(0, 1fr) 3rem;
+  align-items: center;
+  padding:
+    env(safe-area-inset-top, 0)
+    max(0.5rem, env(safe-area-inset-right, 0))
+    0
+    max(0.5rem, env(safe-area-inset-left, 0));
+  border-bottom: 1px solid rgba(217, 212, 201, 0.9);
+  background: rgba(255, 253, 248, 0.96);
+}
+
+.contract-entry-header button {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: 0;
+  border-radius: 0.7rem;
+  color: var(--green);
+  background: var(--green-light);
+  font-size: 1.2rem;
+  font-weight: 850;
+}
+
+.contract-entry-header strong {
+  overflow: hidden;
+  color: var(--green);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.contract-entry-content {
+  display: grid;
+  width: min(100%, 38rem);
+  min-height: 0;
+  flex: 1;
+  grid-template-rows:
+    minmax(4rem, 1fr)
+    minmax(7rem, 1.65fr)
+    minmax(4rem, 1fr)
+    minmax(4rem, 1fr)
+    4rem;
+  gap: clamp(0.3rem, 1dvh, 0.65rem);
+  margin: 0 auto;
+  padding:
+    clamp(0.35rem, 1dvh, 0.65rem)
+    max(0.5rem, env(safe-area-inset-right, 0))
+    max(0.25rem, env(safe-area-inset-bottom, 0))
+    max(0.5rem, env(safe-area-inset-left, 0));
+}
+
+.contract-choice-group {
+  display: grid;
+  min-width: 0;
+  min-inline-size: 0;
+  gap: clamp(0.22rem, 0.8vw, 0.4rem);
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.contract-team-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.contract-amount-grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+}
+
+.contract-suit-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.contract-multiplier-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.contract-choice-group button {
+  display: grid;
+  min-width: 0;
+  min-height: 4rem;
+  place-content: center;
+  padding: 0.35rem;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+  color: var(--green);
+  background: var(--paper);
+  font-weight: 850;
+  line-height: 1.05;
+  box-shadow: 0 4px 14px rgba(31, 45, 37, 0.04);
+}
+
+.contract-choice-group button.is-selected {
+  color: white;
+  border-color: var(--green);
+  background: var(--green);
+  box-shadow:
+    0 0 0 2px var(--paper-soft),
+    0 0 0 4px var(--green);
+}
+
+.contract-team-grid button {
+  padding: 0.45rem 0.7rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1rem, 5vw, 1.35rem);
+}
+
+.contract-team-grid button span {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.contract-amount-grid button {
+  min-height: 3.25rem;
+  padding: 0.2rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1rem, 4.6vw, 1.35rem);
+}
+
+.contract-amount-grid button.is-capot {
+  color: #8f3833;
+  border-color: #d8b5af;
+  background: #faefec;
+  font-family: inherit;
+  font-size: clamp(0.72rem, 3.3vw, 0.95rem);
+}
+
+.contract-amount-grid button.is-capot.is-selected {
+  color: white;
+  border-color: var(--green);
+  background: var(--green);
+}
+
+.contract-suit-grid button {
+  align-content: center;
+  gap: 0.15rem;
+}
+
+.contract-suit-grid button > span {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.55rem, 7vw, 2.25rem);
+  line-height: 0.9;
+}
+
+.contract-suit-grid button > span.is-red {
+  color: var(--red);
+}
+
+.contract-suit-grid button strong {
+  overflow: hidden;
+  font-size: clamp(0.58rem, 2.7vw, 0.82rem);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.contract-multiplier-grid button {
+  font-size: clamp(0.7rem, 3.4vw, 1rem);
+}
+
+.contract-continue-button {
+  width: 100%;
+  min-height: 4rem;
+  margin: 0;
+}
+
 .step-indicator {
   display: grid;
   grid-template-columns: 1.65rem 2.5rem 1.65rem 1fr;
