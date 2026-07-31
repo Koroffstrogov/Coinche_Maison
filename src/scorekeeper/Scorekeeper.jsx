@@ -539,11 +539,594 @@ function ScoreHub({ store, navigate, onNewGame }) {
       <section className="archive-section" aria-labelledby="archive-title">
         <div className="archive-heading">
           <div>
-          Û®ô¶‰žËkºwµçy±¥¬õí½¹¥¹¥Í¡ô‘¥Í…‰±•õì……µ”¹‘•…±Ì¹±•¹Ñ¡ôùQ•Éµ¥¹•È±„Á…ÉÑ¥”ð½‰ÕÑÑ½¸ø(€€€€€€€€€€ñ‰ÕÑÑ½¸±…ÍÍ9…µ”ô‰‘…¹•Èµ±¥¹¬ˆÑåÁ”ô‰‰ÕÑÑ½¸ˆ½¹±¥¬õí½¹‰…¹‘½¹ôù‰…¹‘½¹¹•Èð½‰ÕÑÑ½¸ø(€€€€€€€€ð½‘¥Øø(€€€€€€ð½µ…¥¸ø(€€€€ð½‘¥Øø(€€¤)ô()™Õ¹Ñ¥½¸M½É•…µ•!•…‘•È¡ìÑ¥Ñ±”°½¹	…¬°…Ñ¥½¸°½¹Ñ¥½¸ô¤ì(€É•ÑÕÉ¸€ (€€€€ñ¡•…‘•È±…ÍÍ9…µ”ô‰Í½É”µ…µ”µ¡•…‘•Èˆø(€€€€€€ñ‰ÕÑÑ½¸ÑåÁ”ô‰‰ÕÑÑ½¸ˆ½¹±¥¬õí½¹	…­ô…É¥„µ±…‰•°ô‰I•Ñ½ÕÈˆûŠ@ð½‰ÕÑÑ½¸ø(€€€€€€ñ‘¥Øø(€€€€€€€€ñÍÑÉ½¹œù½¥¹¡”ð½ÍÑÉ½¹œø(€€€€€€€€ñÍÁ…¸ùíÑ¥Ñ±•ôð½ÍÁ…¸ø(€€€€€€ð½‘¥Øø(€€€€€í…Ñ¥½¸€ü€ñ‰ÕÑÑ½¸ÑåÁ”ô‰‰ÕÑÑ½¸ˆ½¹±¥¬õí½¹Ñ¥½¹ôùí…Ñ¥½¹ôð½‰ÕÑÑ½¸ø€è€ñÍÁ…¸€¼ùô(€€€€ð½¡•…‘•Èø(€€¤)ô()™Õ¹Ñ¥½¸½¹ÑÉ…Ñ¹ÑÉä¡ì…µ”°‘É…™Ð°½¹¡…¹”°½¹	…¬°½¹½¹Ñ¥¹Õ”ô¤ì(€½¹ÍÐÁ¡…Í”€ô‘É…™Ð¹½¹ÑÉ…ÑA¡…Í”€üü€Ñ•…´œ(€½¹ÍÐÕÁ‘…Ñ”€ô€¡Ù…±Õ•Ì¤€ôø½¹¡…¹” ¡ÕÉÉ•¹Ð¤€ôø€¡ì€¸¸¹ÕÉÉ•¹Ð°€¸¸¹Ù…±Õ•Ìô¤¤((€½¹ÍÐ¡½½Í•Q•…´€ô€¡Ñ•…µ%¤€ôøÕÁ‘…Ñ”¡ì…ÑÑ…­¥¹Q•…µ%èÑ•…µ%°½¹ÑÉ…ÑA¡…Í”è€…µ½Õ¹Ðœô¤(€½¹ÍÐ¡½½Í•½¹ÑÉ…Ð€ô€¡½¹ÑÉ…Ð¤€ôøÕÁ‘…Ñ”¡ì½¹ÑÉ…Ð°½¹ÑÉ…ÑA¡…Í”è€ÍÕ¥Ðœô¤(€½¹ÍÐ¡½½Í•MÕ¥Ð€ô€¡ÍÕ¥Ð¤€ôøÕÁ‘…Ñ”¡ìÍÕ¥Ð°½¹ÑÉ…ÑA¡…Í”è€µÕ±Ñ¥Á±¥•Èœô¤(€½¹ÍÐ¡½½Í•5Õ±Ñ¥Á±¥•È€ô€¡µÕ±Ñ¥Á±¥•È¤€ôøì(€€€½¹¡…¹” ¡ÕÉÉ•¹Ð¤€ôø€¡ì(€€€€€€¸¸¹ÕÉÉ•¹Ð°(€€€€€µÕ±Ñ¥Á±¥•È°(€€€€€ÍÑ•Àè€Í½É”œ°(€€€€€Í½É•A¡…Í”è€É•ÍÕ±Ðœ°(€€€€€…Ñ¥Ù•M½É•Q•…µ%èÕÉÉ•¹Ð¹…ÑÑ…­¥¹Q•…µ%€üüQ5}°(€€€ô¤¤(€€€½¹½¹Ñ¥¹Õ” ¤(€ô((€É•ÑÕÉ¸€ (€€€€ñ‘¥Ø±…ÍÍ9…µ”ô‰Í½É”µ…µ”µÁ…”•¹ÑÉäµÁ…”ˆø(€€€€€€ñM½É•…µ•!•…‘•È(€€€€€€€Ñ¥Ñ±”õí‘É…™Ð¹•‘¥Ñ¥¹•…±%€ü€5½‘¥™¥•È±„‘½¹¹”œ€è½¹¹”€‘í…µ”¹‘•…±Ì¹±•¹Ñ €¬€Åõô(€€€€€€€½¹	…¬õí½¹	…­ô(€€€€€€¼ø(€€€€€€ñµ…¥¸±…ÍÍ9…µ”ô‰•¹ÑÉäµ½¹Ñ•¹Ðˆø(€€€€€€€€ñMÑ•Á%¹‘¥…Ñ½ÈÕÉÉ•¹ÐõìÅô€¼ø(€€€€€€€€ñ•…±MÕµµ…Éä…µ”õí…µ•ô‘É…™Ðõí‘É…™Ñô•‘¥Ñ…‰±”½¹)ÕµÀõì¡¹•áÑA¡…Í”¤€ôøÕÁ‘…Ñ”¡ì½¹ÑÉ…ÑA¡…Í”è¹•áÑA¡…Í”ô¥ô€¼ø((€€€€€€€íÁ¡…Í”€ôôô€Ñ•…´œ€˜˜€ (€€€€€€€€€€ñ¡½¥•MÑ…”Ñ¥Ñ±”ô‰EÕ¤Á½ÉÑ”±”½¹ÑÉ…Ð€üˆ¡¥¹Ðô‹%ÅÕ¥Á”…ÑÑ…ÅÕ…¹Ñ”ˆø(€€€€€€€€€€€€ñ‘¥Ø±…ÍÍ9…µ”ô‰±…É”µ¡½¥”µÉ¥ÑÝ¼ˆø(€€€€€€€€€€€€€í…µ”¹Ñ•…µÌ¹µ…À ¡Ñ•…´¤€ôø€ (€€€€€€€€€€€€€€€€ñ‰ÕÑÑ½¸ÑåÁ”ô‰‰ÕÑÑ½¸ˆ­•äõíÑ•…´¹¥‘ô½¹±¥¬õì ¤€ôø¡½½Í•Q•…´¡Ñ•…´¹¥¥ôø(€€€€€€€€€€€€€€€€€€ñÍÁ…¸û%ÅÕ¥Á”ð½ÍÁ…¸øñÍÑÉ½¹œùíÑ•…´¹¹…µ•ôð½ÍÑÉ½¹œø(€€€€€€€€€€€€€€€€ð½‰ÕÑÑ½¸ø(€€€€€€€€€€€€€€¤¥ô(€€€€€€€€€€€€ð½‘¥Øø(€€€€€€€€€€ð½¡½¥•MÑ…”ø(€€€€€€€€¥ô((€€€€€€€íÁ¡…Í”€ôôô€…µ½Õ¹Ðœ€˜˜€ (€€€€€€€€€€ñ¡½¥•MÑ…”Ñ¥Ñ±”ô‰EÕ•±±”…¹¹½¹”€üˆ¡¥¹Ðô‰Y…±•ÕÈ‘Ô½¹ÑÉ…Ðˆø(€€€€€€€€€€€€ñ‘¥Ø±…ÍÍ9…µ”ô‰…µ½Õ¹ÐµÉ¥ˆø(€€€€€€€€€€€€€í=9QIQ}5=U9QL¹µ…À ¡…µ½Õ¹Ð¤€ôø€ (€€€€€€€€€€€€€€€€ñ‰ÕÑÑ½¸ÑåÁ”ô‰‰ÕÑÑ½¸ˆ­•äõí…µ½Õ¹Ñô½¹±¥¬õì ¤€ôø¡½½Í•½¹ÑÉ…Ð¡…µ½Õ¹Ð¥ôùí…µ½Õ¹Ñôð½‰ÕÑÑ½¸ø(€€€€€€€€€€€€€€¤¥ô(€€€€€€€€€€€€€€ñ‰ÕÑÑ½¸±…ÍÍ9…µ”ô‰…Á½Ðµ¡½¥”ˆÑåÁ”ô‰‰ÕÑÑ½¸ˆ½¹±¥¬õì ¤€ôø¡½½Í•½¹ÑÉ…Ð …Á½Ðœ¥ôù…Á½Ðð½‰ÕÑÑ½¸ø(€€€€€€€€€€€€ð½‘¥Øø(€€€€€€€€€€ð½¡½¥•MÑ…”ø(€€€€€€€€¥ô((€€€€€€€íÁ¡…Í”€ôôô€ÍÕ¥Ðœ€˜˜€ (€€€€€€€€€€ñ¡½¥•MÑ…”Ñ¥Ñ±”ô‰…¹ÌÅÕ•±±”½Õ±•ÕÈ€üˆ¡¥¹Ðô‰½Õ±•ÕÈ“Še…Ñ½ÕÐˆø(€€€€€€€€€€€€ñ‘¥Ø±…ÍÍ9…µ”ô‰ÍÕ¥Ðµ¡½¥”µÉ¥ˆø(€€€€€€€€€€€€€íÍÕ¥Ñ=ÁÑ¥½¹Ì¹µ…À ¡ÍÕ¥Ð¤€ôø€ (€€€€€€€€€€€€€€€€ñ‰ÕÑÑ½¸ÑåÁ”ô‰‰ÕÑÑ½¸ˆ­•äõíÍÕ¥Ð¹Ù…±Õ•ô½¹±¥¬õì ¤€ôø¡½½Í•MÕ¥Ð¡ÍÕ¥Ð¹Ù…±Õ”¥ôø(€€€€€€€€€€€€€€€€€€ñÍÁ…¸±…ÍÍ9…µ”õíÍÕ¥Ð¹É•€ü€¥ÌµÉ•œ€è€œô…É¥„µ¡¥‘‘•¸ô‰ÑÉÕ”ˆùíÍÕ¥Ð¹Íåµ‰½±ôð½ÍÁ…¸ø(€€€€€€€€€€€€€€€€€€ñÍÑÉ½¹œùíÍÕ¥Ð¹±…‰•±ôð½ÍÑÉ½¹œø(€€€€€€€€€€€€€€€€ð½‰ÕÑÑ½¸ø(€€€€€€€€€€€€€€¤¥ô(€€€€€€€€€€€€ð½‘¥Øø(€€€€€€€€€€ð½¡½¥•MÑ…”ø(€€€€€€€€¥ô((€€€€€€€íÁ¡…Í”€ôôô€µÕ±Ñ¥Á±¥•Èœ€˜˜€ (€€€€€€€€€€ñ¡½¥•MÑ…”Ñ¥Ñ±”ô‹%Ñ…Ð‘Ô½¹ÑÉ…Ðˆ¡¥¹Ðô‰•É¹§¡É”…¹¹½¹”ˆø(€€€€€€€€€€€€ñ‘¥Ø±…ÍÍ9…µ”ô‰±…É”µ¡½¥”µÉ¥Ñ¡É•”ˆø(€€€€€€€€€€€€€íµÕ±Ñ¥Á±¥•É=ÁÑ¥½¹Ì¹µ…À ¡½ÁÑ¥½¸¤€ôø€ (€€€€€€€€€€€€€€€€ñ‰ÕÑÑ½¸ÑåÁ”ô‰‰ÕÑÑ½¸ˆ­•äõí½ÁÑ¥½¸¹Ù…±Õ•ô½¹±¥¬õì ¤€ôø¡½½Í•5Õ±Ñ¥Á±¥•È¡½ÁÑ¥½¸¹Ù…±Õ”¥ôø(€€€€€€€€€€€€€€€€€€ñÍÑÉ½¹œùí½ÁÑ¥½¸¹±…‰•±ôð½ÍÑÉ½¹œø(€€€€€€€€€€€€€€€€€€ñÍÁ…¸ùí½ÁÑ¥½¸¹Ù…±Õ”€ôôô€Ä€ü€Ÿ\Äœ€èƒ\‘í½ÁÑ¥½¸¹Ù…±Õ•õôð½ÍÁ…¸ø(€€€€€€€€€€€€€€€€ð½‰ÕÑÑ½¸ø(€€€€€€€€€€€€€€¤¥ô(€€€€€€€€€€€€ð½‘¥Øø(€€€€€€€€€€ð½¡½¥•MÑ…”ø(€€€€€€€€¥ô(€€€€€€ð½µ…¥¸ø(€€€€ð½‘¥Øø(€€¤)ô()™Õ¹Ñ¥½¸MÑ•Á%¹‘¥…Ñ½È¡ìÕÉÉ•¹Ðô¤ì(€É•ÑÕÉ¸€ (€€€€ñ‘¥Ø±…ÍÍ9…µ”ô‰ÍÑ•Àµ¥¹‘¥…Ñ½Èˆ…É¥„µ±…‰•°õíƒ%Ñ…Á”€‘íÕÉÉ•¹ÑôÍÕÈ€Éôø(€€€€€€ñÍÁ…¸±…ÍÍ9…µ”õíÕÉÉ•¹Ð€øô€Ä€ü€¥Ìµ…Ñ¥Ù”œ€è€œôøÄð½ÍÁ…¸ø(€€€€€€ñ¤€¼ø(€€€€€€ñÍÁ…¸±…ÍÍ9…µ”õíÕÉÉ•¹Ð€øô€È€ü€¥Ìµ…Ñ¥Ù”œ€è€œôøÈð½ÍÁ…¸ø(€€€€€€ñÀùíÕÉÉ•¹Ð€ôôô€Ä€ü€½¹ÑÉ…Ðœ€è€M½É•Ìôð½Àø(€€€€ð½‘¥Øø(€€¤)ô()™Õ¹Ñ¥½¸•…±MÕµµ…Éä¡ì…µ”°‘É…™Ð°•‘¥Ñ…‰±”€ô™…±Í”°½¹)ÕµÀô¤ì(€½¹ÍÐÁ…ÉÑÌ€ôl(€€€‘É…™Ð¹…ÑÑ…­¥¹Q•…µ%€˜˜ì­•äè€Ñ•…´œ°±…‰•°èÑ•…µ9…µ”¡…µ”°‘É…™Ð¹…ÑÑ…­¥¹Q•…µ%¤ô°(€€€‘É…™Ð¹½¹ÑÉ…Ð€˜˜ì­•äè€…µ½Õ¹Ðœ°±…‰•°è½¹ÑÉ…Ñ1…‰•°¡‘É…™Ð¹½¹ÑÉ…Ð¤ô°(€€€‘É…™Ð¹ÍÕ¥Ð€˜˜ì­•äè€ÍÕ¥Ðœ°±…‰•°èÍÕ¥Ñ1…‰•°¡‘É…™Ð¹ÍÕ¥Ð¤ô°(€€€‘É…™Ð¹µÕ±Ñ¥Á±¥•È€˜˜ì­•äè€µÕ±Ñ¥Á±¥•Èœ°±…‰•°èµÕ±Ñ¥Á±¥•É1…‰•°¡‘É…™Ð¹µÕ±Ñ¥Á±¥•È¤ô°(€t¹™¥±Ñ•È¡	½½±•…¸¤((€¥˜€ …Á…ÉÑÌ¹±•¹Ñ ¤É•ÑÕÉ¸¹Õ±°((€É•ÑÕÉ¸€ (€€€€ñ‘¥Ø±…ÍÍ9…µ”ô‰‘•…°µÍÕµµ…Éäˆ…É¥„µ±…‰•°ô‰K¥ÍÕ·¤‘Ô½¹ÑÉ…Ðˆø(€€€€€íÁ…ÉÑÌ¹µ…À ¡Á…ÉÐ¤€ôø•‘¥Ñ…‰±”€ü€ (€€€€€€€€ñ‰ÕÑÑ½¸ÑåÁ”ô‰‰ÕÑÑ½¸ˆ­•äõíÁ…ÉÐ¹­•åô½¹±¥¬õì ¤€ôø½¹)ÕµÀ¡Á…ÉÐ¹­•ä¥ôùíÁ…ÉÐ¹±…‰•±ôð½‰ÕÑÑ½¸ø(€€€€€€¤€è€ñÍÁ…¸­•äõíÁ…ÉÐ¹­•åôùíÁ…ÉÐ¹±…‰•±ôð½ÍÁ…¸ø¥ô(€€€€ð½‘¥Øø(€€¤)ô()™Õ¹Ñ¥½¸¡½¥•MÑ…”¡ìÑ¥Ñ±”°¡¥¹Ð°¡¥±‘É•¸ô¤ì(€É•ÑÕÉ¸€ (€€€€ñÍ•Ñ¥½¸±…ÍÍ9…µ”ô‰¡½¥”µÍÑ…”ˆø(€€€€€€ñÀ±…ÍÍ9…µ”ô‰Í½É”µ­¥­•Èˆùí¡¥¹Ñôð½Àø(€€€€€€ñ ÄùíÑ¥Ñ±•ôð½ Äø(€€€€€í¡¥±‘É•¹ô(€€€€ð½Í•Ñ¥½¸ø(€€¤)ô()™Õ¹Ñ¥½¸M½É•¹ÑÉä¡ì…µ”°‘É…™Ð°½¹¡…¹”°½¹	…¬°½¹M…Ù”ô¤ì(€½¹ÍÐÁ¡…Í”€ô‘É…™Ð¹Í½É•A¡…Í”€üü€É•ÍÕ±Ðœ(€½¹ÍÐÕÁ‘…Ñ”€ô€¡Ù…±Õ•Ì¤€ôø½¹¡…¹” ¡ÕÉÉ•¹Ð¤€ôø€¡ì€¸¸¹ÕÉÉ•¹Ð°€¸¸¹Ù…±Õ•Ìô¤¤((€½¹ÍÐ¡½½Í•I•ÍÕ±Ð€ô€¡É•ÍÕ±Ð¤€ôøÕÁ‘…Ñ”¡ìÉ•ÍÕ±Ð°Í½É•A¡…Í”è€Í½É•Ìœô¤((€½¹ÍÐ¡…¹•M½É”€ô€¡­•ä¤€ôøì(€€€½¹ÍÐÑ•…µ%€ô‘É…™Ð¹…Ñ¥Ù•M½É•Q•…µ%€üüQ5}(€€€½¹ÍÐÕÉÉ•¹ÑY…±Õ”€ô‘É…™Ð¹Í½É•ÍmÑ•…µ%‘t(€€€±•Ð¹•áÑY…±Õ”€ôÕÉÉ•¹ÑY…±Õ”((€€€¥˜€¡­•ä€ôôô€œ´ÄÀœñð­•ä€ôôô€œ¬ÄÀœ¤ì(€€€€€½¹ÍÐ…‘©ÕÍÑµ•¹Ð€ô­•ä€ôôô€œ¬ÄÀœ€ü€ÄÀ€è€´ÄÀ(€€€€€¹•áÑY…±Õ”€ôMÑÉ¥¹œ¡5…Ñ ¹µ…à À°€¡9Õµ‰•È¡ÕÉÉ•¹ÑY…±Õ”¤ñð€À¤€¬…‘©ÕÍÑµ•¹Ð¤¤(€€€ô•±Í”¥˜€¡­•ä€ôôô€±•…Èœ¤ì(€€€€€¹•áÑY…±Õ”€ô€œœ(€€€ô•±Í”¥˜€¡ÕÉÉ•¹ÑY…±Õ”€ôôô€œÀœ¤ì(€€€€€¹•áÑY…±Õ”€ô­•ä(€€€ô•±Í”¥˜€¡ÕÉÉ•¹ÑY…±Õ”¹±•¹Ñ €ð€Ð¤ì(€€€€€¹•áÑY…±Õ”€ô€‘íÕÉÉ•¹ÑY…±Õ•ô‘í­•åõ€(€€€ô((€€€½¹¡…¹” ¡ÕÉÉ•¹Ð¤€ôø€¡ì(€€€€€€¸¸¹ÕÉÉ•¹Ð°(€€€€€Í½É•Ìèì€¸¸¹ÕÉÉ•¹Ð¹Í½É•Ì°mÑ•…µ%‘tè¹•áÑY…±Õ”ô°(€€€ô¤¤(€ô((€½¹ÍÐ…¹M…Ù”€ô(€€€‘É…™Ð¹É•ÍÕ±Ð€˜˜‘É…™Ð¹Í½É•ÍmQ5}t€„ôô€œœ€˜˜‘É…™Ð¹Í½É•ÍmQ5}	t€„ôô€œœ((€É•ÑÕÉ¸€ (€€€€ñ‘¥Ø±…ÍÍ9…µ”ô‰Í½É”µ…µ”µÁ…”•¹ÑÉäµÁ…”Í½É”µ•¹ÑÉäµÁ…”ˆø(€€€€€€ñM½É•…µ•!•…‘•È(€€€€€€€Ñ¥Ñ±”õí‘É…™Ð¹•‘¥Ñ¥¹•…±%€ü€5½‘¥™¥•È±•ÌÍ½É•Ìœ€è½¹¹”€‘í…µ”¹‘•…±Ì¹±•¹Ñ €¬€Åõô(€€€€€€€½¹	…¬õí½¹	…­ô(€€€€€€¼ø(€€€€€€ñµ…¥¸±…ÍÍ9…µ”ô‰•¹ÑÉäµ½¹Ñ•¹Ðˆø(€€€€€€€€ñMÑ•Á%¹‘¥…Ñ½ÈÕÉÉ•¹ÐõìÉô€¼ø(€€€€€€€€ñ•…±MÕµµ…Éä…µ”õí…µ•ô‘É…™Ðõí‘É…™Ñô€¼ø((€€€€€€€íÁ¡…Í”€ôôô€É•ÍÕ±Ðœ€ü€ (€€€€€€€€€€ñ¡½¥•MÑ…”Ñ¥Ñ±”ô‰1”½¹ÑÉ…Ð•ÍÓŠ˜ˆ¡¥¹Ðô‰K¥ÍÕ±Ñ…Ð‘”±„‘½¹¹”ˆø(€€€€€€€€€€€€ñ‘¥Ø±…ÍÍ9…µ”ô‰±…É”µ¡½¥”µÉ¥ÑÝ¼É•ÍÕ±ÐµÉ¥ˆø(€€€€€€€€€€€€€€ñ‰ÕÑÑ½¸ÑåÁ”ô‰‰ÕÑÑ½¸ˆ½¹±¥¬õì ¤€ôø¡½½Í•I•ÍÕ±Ð µ…‘”œ¥ôø(€€€€€€€€€€€€€€€€ñÍÁ…¸…É¥„µ¡¥‘‘•¸ô‰ÑÉÕ”ˆûŠrLð½ÍÁ…¸øñÍÑÉ½¹œùK¥ÕÍÍ¤ð½ÍÑÉ½¹œø(€€€€€€€€€€€€€€ð½‰ÕÑÑ½¸ø(€€€€€€€€€€€€€€ñ‰ÕÑÑ½¸ÑåÁ”ô‰‰ÕÑÑ½¸ˆ½¹±¥¬õì ¤€ôø¡½½Í•I•ÍÕ±Ð ™…¥±•œ¥ôø(€€€€€€€€€€€€€€€€ñÍÁ…¸…É¥„µ¡¥‘‘•¸ô‰ÑÉÕ”ˆû\ð½ÍÁ…¸øñÍÑÉ½¹œù¡ÕÓ¤ð½ÍÑÉ½¹œø(€€€€€€€€€€€€€€ð½‰ÕÑÑ½¸ø(€€€€€€€€€€€€ð½‘¥Øø(€€€€€€€€€€ð½¡½¥•MÑ…”ø(€€€€€€€€¤€è€ (€€€€€€€€€€ñÍ•Ñ¥½¸±…ÍÍ9…µ”ô‰µ…¹Õ…°µÍ½É”µÍÑ…”ˆø(€€€€€€€€€€€€ñ‘¥Ø±…ÍÍ9…µ”ô‰µ…¹Õ…°µÍ½É”µ¡•…‘¥¹œˆø(€€€€€€€€€€€€€€ñ‘¥Øø(€€€€€€€€€€€€€€€€ñÀ±…ÍÍ9…µ”ô‰Í½É”µ­¥­•ÈˆùM½É•Ì…ÑÑÉ¥‰×¥Ìð½Àø(€€€€€€€€€€€€€€€€ñ ÄùM…¥Í¥È±•ÌÁ½¥¹ÑÌð½ Äø(€€€€€€€€€€€€€€ð½‘¥Øø(€€€€€€€€€€€€€€ñ‰ÕÑÑ½¸ÑåÁ”ô‰‰ÕÑÑ½¸ˆ½¹±¥¬õì ¤€ôø¡…¹•M½É” ±•…Èœ¥ôù™™…•Èð½‰ÕÑÑ½¸ø(€€€€€€€€€€€€ð½‘¥Øø((€€€€€€€€€€€€ñ‘¥Ø±…ÍÍ9…µ”ô‰µ…¹Õ…°µÍ½É”µ™¥•±‘ÌˆÉ½±”ô‰É½ÕÀˆ…É¥„µ±…‰•°ô‹%ÅÕ¥Á”ƒ€µ½‘¥™¥•Èˆø(€€€€€€€€€€€€€í…µ”¹Ñ•…µÌ¹µ…À ¡Ñ•…´¤€ôøì(€€€€€€€€€€€€€€€½¹ÍÐ…Ñ¥Ù”€ô‘É…™Ð¹…Ñ¥Ù•M½É•Q•…µ%€ôôôÑ•…´¹¥(€€€€€€€€€€€€€€€É•ÑÕÉ¸€ (€€€€€€€€€€€€€€€€€€ñ‰ÕÑÑ½¸(€€€€€€€€€€€€€€€€€€€ÑåÁ”ô‰‰ÕÑÑ½¸ˆ(€€€€€€€€€€€€€€€€€€€±…ÍÍ9…µ”õí…Ñ¥Ù”€ü€¥Ìµ…Ñ¥Ù”œ€è€œô(€€€€€€€€€€€€€€€€€€€…É¥„µÁÉ•ÍÍ•õí…Ñ¥Ù•ô(€€€€€€€€€€€€€€€€€€€­•äõíÑ•…´¹¥‘ô(€€€€€€€€€€€€€€€€€€€½¹±¥¬õì ¤€ôøÕÁ‘…Ñ”¡ì…Ñ¥Ù•M½É•Q•…µ%èÑ•…´¹¥ô¥ô(€€€€€€€€€€€€€€€€€€ø(€€€€€€€€€€€€€€€€€€€€ñÍÁ…¸ùíÑ•…´¹¹…µ•ôð½ÍÁ…¸ø(€€€€€€€€€€€€€€€€€€€€ñÍÑÉ½¹œùí‘É…™Ð¹Í½É•ÍmÑ•…´¹¥‘t€ôôô€œœ€ü€ŸŠPœ€è™½Éµ…Ñ9Õµ‰•È¡9Õµ‰•È¡‘É…™Ð¹Í½É•ÍmÑ•…´¹¥‘t¤¥ôð½ÍÑÉ½¹œø(€€€€€€€€€€€€€€€€€€ð½‰ÕÑÑ½¸ø(€€€€€€€€€€€€€€€€¤(€€€€€€€€€€€€€ô¥ô(€€€€€€€€€€€€ð½‘¥Øø((€€€€€€€€€€€€ñ‘¥Ø±…ÍÍ9…µ”ô‰Í½É”µ­•åÁ…ˆ…É¥„µ±…‰•°ô‰A…Û¤¹Õ·¥É¥ÅÕ”ˆø(€€€€€€€€€€€€€í­•åÁ…‘I½ÝÌ¹™±…Ð ¤¹µ…À ¡­•ä¤€ôø€ (€€€€€€€€€€€€€€€€ñ‰ÕÑÑ½¸(€€€€€€€€€€€€€€€€€ÑåÁ”ô‰‰ÕÑÑ½¸ˆ(€€€€€€€€€€€€€€€€€±…ÍÍ9…µ”õí­•ä¹¥¹±Õ‘•Ì œÄÀœ¤€ü€¥Ìµ…‘©ÕÍÑµ•¹Ðœ€è€œô(€€€€€€€€€€€€€€€€€­•äõí­•åô(€€€€€€€€€€€€€€€€€½¹±¥¬õì ¤€ôø¡…¹•M½É”¡­•ä¥ô(€€€€€€€€€€€€€€€€ø(€€€€€€€€€€€€€€€€€í­•ä€ôôô€œ´ÄÀœ€ü€ŸŠ"HÄÀœ€è­•åô(€€€€€€€€€€€€€€€€ð½‰ÕÑÑ½¸ø(€€€€€€€€€€€€€€¤¥ô(€€€€€€€€€€€€ð½‘¥Øø((€€€€€€€€€€€€ñ‰ÕÑÑ½¸±…ÍÍ9…µ”ô‰Í½É”µÁÉ¥µ…Éäµ‰ÕÑÑ½¸Í…Ù”µ‘•…°µ‰ÕÑÑ½¸ˆÑåÁ”ô‰‰ÕÑÑ½¸ˆ‘¥Í…‰±•õì……¹M…Ù•ô½¹±¥¬õí½¹M…Ù•ôø(€€€€€€€€€€€€€í‘É…™Ð¹•‘¥Ñ¥¹•…±%€ü€¹É•¥ÍÑÉ•È±•Ìµ½‘¥™¥…Ñ¥½¹Ìœ€è€¹É•¥ÍÑÉ•È±„‘½¹¹”ô(€€€€€€€€€€€€ð½‰ÕÑÑ½¸ø(€€€€€€€€€€ð½Í•Ñ¥½¸ø(€€€€€€€€¥ô(€€€€€€ð½µ…¥¸ø(€€€€ð½‘¥Øø(€€¤)ô()™Õ¹Ñ¥½¸•…±!¥ÍÑ½Éä¡ì…µ”°½¹	…¬°½¹‘¥Ð°½¹•±•Ñ”ô¤ì(€½¹ÍÐÑ½Ñ…±Ì€ô•Ñ…µ•Q½Ñ…±Ì¡…µ”¤(€É•ÑÕÉ¸€ (€€€€ñ‘¥Ø±…ÍÍ9…µ”ô‰Í½É”µ…µ”µÁ…”¡¥ÍÑ½ÉäµÁ…”ˆø(€€€€€€ñM½É•…µ•!•…‘•ÈÑ¥Ñ±”ô‰!¥ÍÑ½É¥ÅÕ”ˆ½¹	…¬õí½¹	…­ô€¼ø(€€€€€€ñµ…¥¸±…ÍÍ9…µ”ô‰¡¥ÍÑ½Éäµ½¹Ñ•¹Ðˆø(€€€€€€€€ñ‘¥Ø±…ÍÍ9…µ”ô‰¡¥ÍÑ½ÉäµÑ½Ñ…°µÍÑÉ¥Àˆø(€€€€€€€€€€ñÍÁ…¸ùí…µ”¹Ñ•…µÍlÁt¹¹…µ•ôñÍÑÉ½¹œùí™½Éµ…Ñ9Õµ‰•È¡Ñ½Ñ…±ÍmQ5}t¥ôð½ÍÑÉ½¹œøð½ÍÁ…¸ø(€€€€€€€€€€ñÍÁ…¸ùí…µ”¹Ñ•…µÍlÅt¹¹…µ•ôñÍÑÉ½¹œùí™½Éµ…Ñ9Õµ‰•È¡Ñ½Ñ…±ÍmQ5}	t¥ôð½ÍÑÉ½¹œøð½ÍÁ…¸ø(€€€€€€€€ð½‘¥Øø(€€€€€€€€ñ‘¥Ø±…ÍÍ9…µ”ô‰‘•…°µ±¥ÍÐˆø(€€€€€€€€€íl¸¸¹…µ”¹‘•…±Ít¹É•Ù•ÉÍ” ¤¹µ…À ¡‘•…°°É•Ù•ÉÍ•%¹‘•à¤€ôøì(€€€€€€€€€€€½¹ÍÐ‘•…±9Õµ‰•È€ô…µ”¹‘•…±Ì¹±•¹Ñ €´É•Ù•ÉÍ•%¹‘•à(€€€€€€€€€€€É•ÑÕÉ¸€ (€€€€€€€€€€€€€€ñ…ÉÑ¥±”±…ÍÍ9…µ”ô‰‘•…°µ¡¥ÍÑ½Éäµ…Éˆ­•äõí‘•…°¹¥‘ôø(€€€€€€€€€€€€€€€€ñ‘¥Ø±…ÍÍ9…µ”ô‰‘•…°µ¡¥ÍÑ½Éäµ¹Õµ‰•Èˆùí‘•…±9Õµ‰•Éôð½‘¥Øø(€€€€€€€€€€€€€€€€ñ‘¥Øø(€€€€€€€€€€€€€€€€€€ñÀùíÑ•…µ9…µ”¡…µ”°‘•…°¹…ÑÑ…­¥¹Q•…µ%¥ôƒ
-Üí‘•…°¹É•ÍÕ±Ð€ôôô€µ…‘”œ€ü€Ë¥ÕÍÍ¤œ€è€¡ÕÓ¤ôð½Àø(€€€€€€€€€€€€€€€€€€ñÍÑÉ½¹œùí½¹ÑÉ…Ñ1…‰•°¡‘•…°¹½¹ÑÉ…Ð¥ôƒ€íÍÕ¥Ñ1…‰•°¡‘•…°¹ÍÕ¥Ð¤¹Ñ½1½Ý•É…Í” ¥ôƒ
-ÜíµÕ±Ñ¥Á±¥•É1…‰•°¡‘•…°¹µÕ±Ñ¥Á±¥•È¥ôð½ÍÑÉ½¹œø(€€€€€€€€€€€€€€€€€€ñÍÁ…¸ùí…µ”¹Ñ•…µÍlÁt¹¹…µ•ô€­í™½Éµ…Ñ9Õµ‰•È¡‘•…°¹Í½É•ÍmQ5}t¥ôƒ
-Üí…µ”¹Ñ•…µÍlÅt¹¹…µ•ô€­í™½Éµ…Ñ9Õµ‰•È¡‘•…°¹Í½É•ÍmQ5}	t¥ôð½ÍÁ…¸ø(€€€€€€€€€€€€€€€€ð½‘¥Øø(€€€€€€€€€€€€€€€€ñ‘¥Ø±…ÍÍ9…µ”ô‰‘•…°µ¡¥ÍÑ½Éäµ…Ñ¥½¹Ìˆø(€€€€€€€€€€€€€€€€€€ñ‰ÕÑÑ½¸ÑåÁ”ô‰‰ÕÑÑ½¸ˆ½¹±¥¬õì ¤€ôø½¹‘¥Ð¡‘•…°¥ôù5½‘¥™¥•Èð½‰ÕÑÑ½¸ø(€€€€€€€€€€€€€€€€€€ñ‰ÕÑÑ½¸ÑåÁ”ô‰‰ÕÑÑ½¸ˆ½¹±¥¬õì ¤€ôø½¹•±•Ñ”¡‘•…°¹¥¥ôùMÕÁÁÉ¥µ•Èð½‰ÕÑÑ½¸ø(€€€€€€€€€€€€€€€€ð½‘¥Øø(€€€€€€€€€€€€€€ð½…ÉÑ¥±”ø(€€€€€€€€€€€€¤(€€€€€€€€€ô¥ô(€€€€€€€€ð½‘¥Øø(€€€€€€€ì……µ”¹‘•…±Ì¹±•¹Ñ €˜˜€ñÀ±…ÍÍ9…µ”ô‰Í½É”µ•µÁÑäµ½ÁäˆùÕÕ¹”‘½¹¹”•¹É•¥ÍÑË¥”¸ð½Àùô(€€€€€€ð½µ…¥¸ø(€€€€ð½‘¥Øø(€€¤)ô()™Õ¹Ñ¥½¸…µ•MÕµµ…Éä¡ì…µ”°½¹	…¬°½¹•±•Ñ”ô¤ì(€½¹ÍÐÑ½Ñ…±Ì€ô•Ñ…µ•Q½Ñ…±Ì¡…µ”¤(€½¹ÍÐÍ•É¥•Ì€ô•ÑÕµÕ±…Ñ¥Ù•M•É¥•Ì¡…µ”¤(€½¹ÍÐÍÑ…ÑÌ€ô•Ñ…µ•MÑ…ÑÌ¡…µ”¤(€½¹ÍÐ½ÕÑ½µ”€ô•Ñ…µ•=ÕÑ½µ”¡…µ”¤(€½¹ÍÐÝ¥¹¹•È€ô½ÕÑ½µ”ü¹Ý¥¹¹•ÉQ•…µ%(€€€€üÑ•…µ9…µ”¡…µ”°½ÕÑ½µ”¹Ý¥¹¹•ÉQ•…µ%¤(€€€€è¹Õ±°((€É•ÑÕÉ¸€ (€€€€ñ‘¥Ø±…ÍÍ9…µ”ô‰Í½É”µÁ…”ÍÕµµ…ÉäµÁ…”ˆø(€€€€€€ñ¡•…‘•È±…ÍÍ9…µ”ô‰ÍÕµµ…Éäµ¡•É¼ˆø(€€€€€€€€ñ‰ÕÑÑ½¸±…ÍÍ9…µ”ô‰Í½É”µÑ•áÐµ‰ÕÑÑ½¸±¥¡ÐˆÑåÁ”ô‰‰ÕÑÑ½¸ˆ½¹±¥¬õí½¹	…­ôûŠ@½µÁÑ•ÕÈð½‰ÕÑÑ½¸ø(€€€€€€€€ñÀ±…ÍÍ9…µ”ô‰Í½É”µ­¥­•Èˆù	¥±…¸‘”±„Á…ÉÑ¥”ð½Àø(€€€€€€€€ñ ÄùíÝ¥¹¹•È€ü€‘íÝ¥¹¹•ÉôÉ•µÁ½ÉÑ”±„Á…ÉÑ¥•€€è€1„Á…ÉÑ¥”Í”Ñ•Éµ¥¹”ƒ€ƒ¥…±¥Ó¤ôð½ Äø(€€€€€€€€ñÀùí™½Éµ…Ñ…Ñ”¡…µ”¹™¥¹¥Í¡•‘Ð¥ôƒ
-Üí…µ”¹‘•…±Ì¹±•¹Ñ¡ô‘½¹¹•í…µ”¹‘•…±Ì¹±•¹Ñ €ø€Ä€ü€Ìœ€è€œôð½Àø(€€€€€€€€ñ‘¥Ø±…ÍÍ9…µ”ô‰ÍÕµµ…Éäµ™¥¹…°µÍ½É•Ìˆø(€€€€€€€€€í…µ”¹Ñ•…µÌ¹µ…À ¡Ñ•…´¤€ôø€ (€€€€€€€€€€€€ñÍÁ…¸­•äõíÑ•…´¹¥‘ôøñÍµ…±°ùíÑ•…´¹¹…µ•ôð½Íµ…±°øñÍÑÉ½¹œùí™½Éµ…Ñ9Õµ‰•È¡Ñ½Ñ…±ÍmÑ•…´¹¥‘t¥ôð½ÍÑÉ½¹œøð½ÍÁ…¸ø(€€€€€€€€€€¤¥ô(€€€€€€€€ð½‘¥Øø(€€€€€€ð½¡•…‘•Èø((€€€€€€ñÍ•Ñ¥½¸±…ÍÍ9…µ”ô‰ÍÕµµ…ÉäµÍ•Ñ¥½¸ˆø(€€€€€€€€ñ‘¥Ø±…ÍÍ9…µ”ô‰ÍÕµµ…ÉäµÍ•Ñ¥½¸µ¡•…‘¥¹œˆø(€€€€€€€€€€ñÀ±…ÍÍ9…µ”ô‰Í½É”µ­¥­•Èˆû%Ù½±ÕÑ¥½¸ð½Àø(€€€€€€€€€€ñ Èù1„½ÕÉÍ”…ÕàÁ½¥¹ÑÌð½ Èø(€€€€€€€€ð½‘¥Øø(€€€€€€€€ñM½É•¡…ÉÐ(€€€€€€€€€Í•É¥•ÌõíÍ•É¥•Íô(€€€€€€€€€Ñ•…µÌõí…µ”¹Ñ•…µÍô(€€€€€€€€€Ñ…É•Ðõí…µ”¹•¹‘½¹‘¥Ñ¥½¸¹ÑåÁ”€ôôô€Í½É”œ€ü…µ”¹•¹‘½¹‘¥Ñ¥½¸¹Ñ…É•Ð€è¹Õ±±ô(€€€€€€€€¼ø(€€€€€€ð½Í•Ñ¥½¸ø((€€€€€€ñÍ•Ñ¥½¸±…ÍÍ9…µ”ô‰ÍÕµµ…ÉäµÍ•Ñ¥½¸ˆø(€€€€€€€€ñ‘¥Ø±…ÍÍ9…µ”ô‰ÍÕµµ…ÉäµÍ•Ñ¥½¸µ¡•…‘¥¹œˆø(€€€€€€€€€€ñÀ±…ÍÍ9…µ”ô‰Í½É”µ­¥­•Èˆù¸¡¥™™É•Ìð½Àø(€€€€€€€€€€ñ Èù1”‰¥±…¸ð½ Èø(€€€€€€€€ð½‘¥Øø(€€€€€€€€ñ‘¥Ø±…ÍÍ9…µ”ô‰ÍÑ…ÑÌµÉ¥ˆø(€€€€€€€€€í…µ”¹Ñ•…µÌ¹µ…À ¡Ñ•…´¤€ôø€ (€€€€€€€€€€€€ñMÑ…Ñ…É(€€€€€€€€€€€€€­•äõíÑ•…´¹¥‘ô(€€€€€€€€€€€€€Ù…±Õ”õí€‘íÍÑ…ÑÌ¹‰åQ•…´ü¹mÑ•…´¹¥‘tü¹µ…‘”€üü€Áô€¼€‘íÍÑ…ÑÌ¹‰åQ•…´ü¹mÑ•…´¹¥‘tü¹™…¥±•€üü€Áõô(€€€€€€€€€€€€€±…‰•°õí€‘íÑ•…´¹¹…µ•ôƒ
-ÜË¥ÕÍÍ¥Ì€¼¡ÕÓ¥Íô(€€€€€€€€€€€€¼ø(€€€€€€€€€€¤¥ô(€€€€€€€€€€ñMÑ…Ñ…ÉÙ…±Õ”õì¡ÍÑ…ÑÌ¹½¥¹•€üü€À¤€¬€¡ÍÑ…ÑÌ¹ÍÕÉ½¥¹•€üü€À¥ô±…‰•°ô‰½¥¹¡•Ì•ÐÍÕÉ½¥¹¡•Ìˆ€¼ø(€€€€€€€€€€ñMÑ…Ñ…ÉÙ…±Õ”õí™½Éµ…Ñ9Õµ‰•È¡ÍÑ…ÑÌ¹‰¥•ÍÑ•…°ü¹Í½É”€üü€À¥ô±…‰•°ô‰Á½¥¹ÑÌÍÕÈ±„Á±ÕÌÉ½ÍÍ”‘½¹¹”ˆ€¼ø(€€€€€€€€€€ñMÑ…Ñ…ÉÙ…±Õ”õí™½Éµ…Ñ9Õµ‰•È¡ÍÑ…ÑÌ¹µ…á1•…ü¹…µ½Õ¹Ð€üü€À¥ô±…‰•°ô‰Á½¥¹ÑÌ“Še…Ù…¹”µ…á¥µ…±”ˆ€¼ø(€€€€€€€€ð½‘¥Øø(€€€€€€ð½Í•Ñ¥½¸ø((€€€€€€ñÍ•Ñ¥½¸±…ÍÍ9…µ”ô‰ÍÕµµ…ÉäµÍ•Ñ¥½¸½µÁ…ÐµÍÕµµ…Éäµ¡¥ÍÑ½Éäˆø(€€€€€€€€ñ‘¥Ø±…ÍÍ9…µ”ô‰ÍÕµµ…ÉäµÍ•Ñ¥½¸µ¡•…‘¥¹œˆø(€€€€€€€€€€ñÀ±…ÍÍ9…µ”ô‰Í½É”µ­¥­•Èˆù¥Ñ…¥°ð½Àø(€€€€€€€€€€ñ Èù1•Ì‘½¹¹•Ìð½ Èø(€€€€€€€€ð½‘¥Øø(€€€€€€€€ñ‘¥Ø±…ÍÍ9…µ”ô‰ÍÕµµ…Éäµ‘•…°µ±¥ÍÐˆø(€€€€€€€€€í…µ”¹‘•…±Ì¹µ…À ¡‘•…°°¥¹‘•à¤€ôø€ (€€€€€€€€€€€€ñ‘¥Ø­•äõí‘•…°¹¥‘ôø(€€€€€€€€€€€€€€ñÍÁ…¸ùí¥¹‘•à€¬€Åôð½ÍÁ…¸ø(€€€€€€€€€€€€€€ñÀøñÍÑÉ½¹œùí½¹ÑÉ…Ñ1…‰•°¡‘•…°¹½¹ÑÉ…Ð¥ôƒ
-ÜíÍÕ¥Ñ1…‰•°¡‘•…°¹ÍÕ¥Ð¥ôð½ÍÑÉ½¹œùíÑ•…µ9…µ”¡…µ”°‘•…°¹…ÑÑ…­¥¹Q•…µ%¥ôƒ
-Üí‘•…°¹É•ÍÕ±Ð€ôôô€µ…‘”œ€ü€Ë¥ÕÍÍ¤œ€è€¡ÕÓ¤ôð½Àø(€€€€€€€€€€€€€€ñÀø­í™½Éµ…Ñ9Õµ‰•È¡‘•…°¹Í½É•ÍmQ5}t¥ô€¼€­í™½Éµ…Ñ9Õµ‰•È¡‘•…°¹Í½É•ÍmQ5}	t¥ôð½Àø(€€€€€€€€€€€€ð½‘¥Øø(€€€€€€€€€€¤¥ô(€€€€€€€€ð½‘¥Øø(€€€€€€ð½Í•Ñ¥½¸ø((€€€€€€ñ‰ÕÑÑ½¸±…ÍÍ9…µ”ô‰‘•±•Ñ”µ…É¡¥Ù”µ‰ÕÑÑ½¸ˆÑåÁ”ô‰‰ÕÑÑ½¸ˆ½¹±¥¬õí½¹•±•Ñ•ôùMÕÁÁÉ¥µ•È•ÑÑ”Á…ÉÑ¥”ð½‰ÕÑÑ½¸ø(€€€€ð½‘¥Øø(€€¤)ô()™Õ¹Ñ¥½¸MÑ…Ñ…É¡ìÙ…±Õ”°±…‰•°ô¤ì(€É•ÑÕÉ¸€ñ…ÉÑ¥±”±…ÍÍ9…µ”ô‰ÍÑ…Ðµ…ÉˆøñÍÑÉ½¹œùíÙ…±Õ•ôð½ÍÑÉ½¹œøñÍÁ…¸ùí±…‰•±ôð½ÍÁ…¸øð½…ÉÑ¥±”ø)ô()™Õ¹Ñ¥½¸M½É•µÁÑä¡ìÑ¥Ñ±”°…Ñ¥½¸°½¹Ñ¥½¸ô¤ì(€É•ÑÕÉ¸€ (€€€€ñ‘¥Ø±…ÍÍ9…µ”ô‰Í½É”µ•µÁÑäµÍÑ…Ñ”ˆø(€€€€€€ñÍÁ…¸±…ÍÍ9…µ”ô‰•µÁÑäµÍÕ¥Ðˆ…É¥„µ¡¥‘‘•¸ô‰ÑÉÕ”ˆûŠfŒð½ÍÁ…¸ø(€€€€€€ñ ÄùíÑ¥Ñ±•ôð½ Äø(€€€€€€ñ‰ÕÑÑ½¸±…ÍÍ9…µ”ô‰Í½É”µÁÉ¥µ…Éäµ‰ÕÑÑ½¸ˆÑåÁ”ô‰‰ÕÑÑ½¸ˆ½¹±¥¬õí½¹Ñ¥½¹ôùí…Ñ¥½¹ôð½‰ÕÑÑ½¸ø(€€€€ð½‘¥Øø(€€¤)ô()™Õ¹Ñ¥½¸½¹™¥Éµ¥…±½œ¡ìÑ¥Ñ±”°‰½‘ä°±…‰•°°‘…¹•È€ô™…±Í”°½¹½¹™¥É´°½¹…¹•°ô¤ì(€É•ÑÕÉ¸€ (€€€€ñ‘¥Ø±…ÍÍ9…µ”ô‰½¹™¥É´µ‰…­‘É½ÀˆÉ½±”ô‰ÁÉ•Í•¹Ñ…Ñ¥½¸ˆ½¹5½ÕÍ•½Ý¸õì¡•Ù•¹Ð¤€ôøì(€€€€€¥˜€¡•Ù•¹Ð¹Ñ…É•Ð€ôôô•Ù•¹Ð¹ÕÉÉ•¹ÑQ…É•Ð¤½¹…¹•° ¤(€€€õôø(€€€€€€ñÍ•Ñ¥½¸±…ÍÍ9…µ”ô‰½¹™¥É´µ‘¥…±½œˆÉ½±”ô‰…±•ÉÑ‘¥…±½œˆ…É¥„µµ½‘…°ô‰ÑÉÕ”ˆ…É¥„µ±…‰•±±•‘‰äô‰½¹™¥É´µÑ¥Ñ±”ˆø(€€€€€€€€ñÀ±…ÍÍ9…µ”ô‰Í½É”µ­¥­•Èˆù½¹™¥Éµ…Ñ¥½¸ð½Àø(€€€€€€€€ñ È¥ô‰½¹™¥É´µÑ¥Ñ±”ˆùíÑ¥Ñ±•ôð½ Èø(€€€€€€€€ñÀùí‰½‘åôð½Àø(€€€€€€€€ñ‘¥Øø(€€€€€€€€€€ñ‰ÕÑÑ½¸ÑåÁ”ô‰‰ÕÑÑ½¸ˆ½¹±¥¬õí½¹…¹•±ôù¹¹Õ±•Èð½‰ÕÑÑ½¸ø(€€€€€€€€€€ñ‰ÕÑÑ½¸±…ÍÍ9…µ”õí‘…¹•È€ü€¥Ìµ‘…¹•Èœ€è€¥ÌµÁÉ¥µ…ÉäôÑåÁ”ô‰‰ÕÑÑ½¸ˆ½¹±¥¬õí½¹½¹™¥Éµôùí±…‰•±ôð½‰ÕÑÑ½¸ø(€€€€€€€€ð½‘¥Øø(€€€€€€ð½Í•Ñ¥½¸ø(€€€€ð½‘¥Øø(€€¤)ô(
+            <p className="score-kicker">Sur ce tÃ©lÃ©phone</p>
+            <h2 id="archive-title">Parties terminÃ©es</h2>
+          </div>
+          <span>{store.archivedGames.length}</span>
+        </div>
+
+        {store.archivedGames.length ? (
+          <div className="archive-list">
+            {store.archivedGames.map((game) => {
+              const totals = getGameTotals(game)
+              return (
+                <button
+                  className="archive-card"
+                  type="button"
+                  key={game.id}
+                  onClick={() => navigate(`/compteur/archives/${game.id}`)}
+                >
+                  <span className="archive-date">{formatDate(game.finishedAt)}</span>
+                  <strong>{game.teams[0].name} Â· {formatNumber(totals[TEAM_A])}</strong>
+                  <strong>{game.teams[1].name} Â· {formatNumber(totals[TEAM_B])}</strong>
+                  <span>{game.deals.length} donne{game.deals.length > 1 ? 's' : ''} â†’</span>
+                </button>
+              )
+            })}
+          </div>
+        ) : (
+          <p className="score-empty-copy">Les bilans de vos parties apparaÃ®tront ici.</p>
+        )}
+      </section>
+    </div>
+  )
+}
+
+function ActiveGameCard({ game, onResume }) {
+  const totals = getGameTotals(game)
+  return (
+    <section className="active-game-card" aria-label="Partie en cours">
+      <div>
+        <p className="score-kicker">Partie en cours Â· Donne {game.deals.length + 1}</p>
+        <div className="active-game-totals">
+          <span><strong>{formatNumber(totals[TEAM_A])}</strong>{game.teams[0].name}</span>
+          <span><strong>{formatNumber(totals[TEAM_B])}</strong>{game.teams[1].name}</span>
+        </div>
+      </div>
+      <button className="score-primary-button" type="button" onClick={onResume}>
+        Reprendre <span aria-hidden="true">â†’</span>
+      </button>
+    </section>
+  )
+}
+
+function GameSetup({ onCancel, onCreate }) {
+  const [teamA, setTeamA] = useState('Ã‰quipe A')
+  const [teamB, setTeamB] = useState('Ã‰quipe B')
+  const [endType, setEndType] = useState('score')
+  const [endValue, setEndValue] = useState('1000')
+
+  const submit = (event) => {
+    event.preventDefault()
+    const value = Math.max(1, Number.parseInt(endValue, 10) || 1)
+    onCreate({
+      teamAName: teamA.trim() || 'Ã‰quipe A',
+      teamBName: teamB.trim() || 'Ã‰quipe B',
+      endCondition:
+        endType === 'score'
+          ? { type: 'score', target: value }
+          : { type: 'deals', count: value },
+    })
+  }
+
+  return (
+    <form className="score-page setup-page" onSubmit={submit}>
+      <header className="score-page-heading compact">
+        <button className="score-text-button" type="button" onClick={onCancel}>â† Annuler</button>
+        <p className="score-kicker">Nouvelle partie</p>
+        <h1>PrÃ©parer la table</h1>
+      </header>
+
+      <section className="setup-section">
+        <h2>Les Ã©quipes</h2>
+        <label>
+          <span>PremiÃ¨re Ã©quipe</span>
+          <input value={teamA} onChange={(event) => setTeamA(event.target.value)} maxLength="24" />
+        </label>
+        <label>
+          <span>DeuxiÃ¨me Ã©quipe</span>
+          <input value={teamB} onChange={(event) => setTeamB(event.target.value)} maxLength="24" />
+        </label>
+      </section>
+
+      <section className="setup-section">
+        <h2>Fin de la partie</h2>
+        <div className="score-segmented two" role="group" aria-label="Condition de fin">
+          <button type="button" className={endType === 'score' ? 'is-selected' : ''} onClick={() => setEndType('score')}>
+            Score Ã  atteindre
+          </button>
+          <button type="button" className={endType === 'deals' ? 'is-selected' : ''} onClick={() => setEndType('deals')}>
+            Nombre de donnes
+          </button>
+        </div>
+        <label className="end-value-field">
+          <span>{endType === 'score' ? 'Objectif' : 'Nombre de donnes'}</span>
+          <input
+            type="number"
+            inputMode="numeric"
+            min="1"
+            value={endValue}
+            onChange={(event) => setEndValue(event.target.value)}
+          />
+          <small>{endType === 'score' ? 'points' : 'donnes'}</small>
+        </label>
+      </section>
+
+      <button className="score-primary-button score-submit" type="submit">
+        Commencer la partie <span aria-hidden="true">â†’</span>
+      </button>
+    </form>
+  )
+}
+
+function GameBoard({ game, hasDraft, onBack, onAdd, onDiscardDraft, onHistory, onReview, onUndo, onFinish, onAbandon }) {
+  const totals = getGameTotals(game)
+  const reached = hasReachedEnd(game)
+  const objectiveCurrent = game.endCondition.type === 'score'
+    ? Math.max(totals[TEAM_A], totals[TEAM_B])
+    : game.deals.length
+  const objectiveTarget = game.endCondition.type === 'score'
+    ? game.endCondition.target
+    : game.endCondition.count
+  const progress = Math.min(100, (objectiveCurrent / objectiveTarget) * 100)
+  const lastDeal = game.deals.at(-1)
+
+  return (
+    <div className="score-game-page board-page">
+      <ScoreGameHeader
+        title={`Donne ${game.deals.length + 1}`}
+        onBack={onBack}
+        action="Historique"
+        onAction={onHistory}
+      />
+
+      <main className="board-content">
+        <div className="team-score-grid" aria-label="Scores cumulÃ©s">
+          {game.teams.map((team, index) => (
+            <section className={`team-score-card team-${index + 1}`} key={team.id}>
+              <p>{team.name}</p>
+              <strong>{formatNumber(totals[team.id])}</strong>
+              <span>points</span>
+            </section>
+          ))}
+        </div>
+
+        <section className="objective-card">
+          <div>
+            <span>Objectif</span>
+            <strong>
+              {game.endCondition.type === 'score'
+                ? `${formatNumber(game.endCondition.target)} points`
+                : `${game.endCondition.count} donne${game.endCondition.count > 1 ? 's' : ''}`}
+            </strong>
+          </div>
+          <span>{Math.round(progress)} %</span>
+          <div className="objective-track" aria-hidden="true">
+            <span style={{ width: `${progress}%` }} />
+          </div>
+        </section>
+
+        {reached && (
+          <section className="finish-banner">
+            <p className="score-kicker">Objectif atteint</p>
+            <h2>La partie peut Ãªtre terminÃ©e.</h2>
+            <button className="score-primary-button" type="button" onClick={onFinish}>
+              Voir le bilan <span aria-hidden="true">â†’</span>
+            </button>
+            <button className="finish-review-button" type="button" onClick={onReview}>
+              VÃ©rifier les donnes avant de terminer
+            </button>
+          </section>
+        )}
+
+        <button className="add-deal-button" type="button" onClick={onAdd}>
+          <span aria-hidden="true">ï¼‹</span>
+          <strong>{hasDraft ? 'Reprendre la saisie' : 'Ajouter une donne'}</strong>
+          <small>{hasDraft ? 'Une donne est en attente' : 'Annonce puis scores'}</small>
+        </button>
+
+        {hasDraft && (
+          <button className="discard-draft-button" type="button" onClick={onDiscardDraft}>
+            Abandonner cette saisie
+          </button>
+        )}
+
+        {lastDeal && (
+          <section className="last-deal-card">
+            <div>
+              <p className="score-kicker">DerniÃ¨re donne</p>
+              <strong>{contractLabel(lastDeal.contract)} Ã  {suitLabel(lastDeal.suit).toLowerCase()} Â· {multiplierLabel(lastDeal.multiplier)}</strong>
+              <span>{game.teams[0].name} +{formatNumber(lastDeal.scores[TEAM_A])} Â· {game.teams[1].name} +{formatNumber(lastDeal.scores[TEAM_B])}</span>
+            </div>
+            <button type="button" onClick={onUndo}>Annuler</button>
+          </section>
+        )}
+
+        <div className="board-secondary-actions">
+          <button type="button" onClick={onHistory}>Voir toutes les donnes</button>
+          <button type="button" onClick={onFinish} disabled={!game.deals.length}>Terminer la partie</button>
+          <button className="danger-link" type="button" onClick={onAbandon}>Abandonner</button>
+        </div>
+      </main>
+    </div>
+  )
+}
+
+function ScoreGameHeader({ title, onBack, action, onAction }) {
+  return (
+    <header className="score-game-header">
+      <button type="button" onClick={onBack} aria-label="Retour">â†</button>
+      <div>
+        <strong>Coinche</strong>
+        <span>{title}</span>
+      </div>
+      {action ? <button type="button" onClick={onAction}>{action}</button> : <span />}
+    </header>
+  )
+}
+
+function ContractEntry({ game, draft, onChange, onBack, onContinue }) {
+  const phase = draft.contractPhase ?? 'team'
+  const update = (values) => onChange((current) => ({ ...current, ...values }))
+
+  const chooseTeam = (teamId) => update({ attackingTeamId: teamId, contractPhase: 'amount' })
+  const chooseContract = (contract) => update({ contract, contractPhase: 'suit' })
+  const chooseSuit = (suit) => update({ suit, contractPhase: 'multiplier' })
+  const chooseMultiplier = (multiplier) => {
+    onChange((current) => ({
+      ...current,
+      multiplier,
+      step: 'score',
+      scorePhase: 'result',
+      activeScoreTeamId: current.attackingTeamId ?? TEAM_A,
+    }))
+    onContinue()
+  }
+
+  return (
+    <div className="score-game-page entry-page">
+      <ScoreGameHeader
+        title={draft.editingDealId ? 'Modifier la donne' : `Donne ${game.deals.length + 1}`}
+        onBack={onBack}
+      />
+      <main className="entry-content">
+        <StepIndicator current={1} />
+        <DealSummary game={game} draft={draft} editable onJump={(nextPhase) => update({ contractPhase: nextPhase })} />
+
+        {phase === 'team' && (
+          <ChoiceStage title="Qui porte le contrat ?" hint="Ã‰quipe attaquante">
+            <div className="large-choice-grid two">
+              {game.teams.map((team) => (
+                <button type="button" key={team.id} onClick={() => chooseTeam(team.id)}>
+                  <span>Ã‰quipe</span><strong>{team.name}</strong>
+                </button>
+              ))}
+            </div>
+          </ChoiceStage>
+        )}
+
+        {phase === 'amount' && (
+          <ChoiceStage title="Quelle annonce ?" hint="Valeur du contrat">
+            <div className="amount-grid">
+              {CONTRACT_AMOUNTS.map((amount) => (
+                <button type="button" key={amount} onClick={() => chooseContract(amount)}>{amount}</button>
+              ))}
+              <button className="capot-choice" type="button" onClick={() => chooseContract('capot')}>Capot</button>
+            </div>
+          </ChoiceStage>
+        )}
+
+        {phase === 'suit' && (
+          <ChoiceStage title="Dans quelle couleur ?" hint="Couleur dâ€™atout">
+            <div className="suit-choice-grid">
+              {suitOptions.map((suit) => (
+                <button type="button" key={suit.value} onClick={() => chooseSuit(suit.value)}>
+                  <span className={suit.red ? 'is-red' : ''} aria-hidden="true">{suit.symbol}</span>
+                  <strong>{suit.label}</strong>
+                </button>
+              ))}
+            </div>
+          </ChoiceStage>
+        )}
+
+        {phase === 'multiplier' && (
+          <ChoiceStage title="Ã‰tat du contrat" hint="DerniÃ¨re annonce">
+            <div className="large-choice-grid three">
+              {multiplierOptions.map((option) => (
+                <button type="button" key={option.value} onClick={() => chooseMultiplier(option.value)}>
+                  <strong>{option.label}</strong>
+                  <span>{option.value === 1 ? 'Ã—1' : `Ã—${option.value}`}</span>
+                </button>
+              ))}
+            </div>
+          </ChoiceStage>
+        )}
+      </main>
+    </div>
+  )
+}
+
+function StepIndicator({ current }) {
+  return (
+    <div className="step-indicator" aria-label={`Ã‰tape ${current} sur 2`}>
+      <span className={current >= 1 ? 'is-active' : ''}>1</span>
+      <i />
+      <span className={current >= 2 ? 'is-active' : ''}>2</span>
+      <p>{current === 1 ? 'Contrat' : 'Scores'}</p>
+    </div>
+  )
+}
+
+function DealSummary({ game, draft, editable = false, onJump }) {
+  const parts = [
+    draft.attackingTeamId && { key: 'team', label: teamName(game, draft.attackingTeamId) },
+    draft.contract && { key: 'amount', label: contractLabel(draft.contract) },
+    draft.suit && { key: 'suit', label: suitLabel(draft.suit) },
+    draft.multiplier && { key: 'multiplier', label: multiplierLabel(draft.multiplier) },
+  ].filter(Boolean)
+
+  if (!parts.length) return null
+
+  return (
+    <div className="deal-summary" aria-label="RÃ©sumÃ© du contrat">
+      {parts.map((part) => editable ? (
+        <button type="button" key={part.key} onClick={() => onJump(part.key)}>{part.label}</button>
+      ) : <span key={part.key}>{part.label}</span>)}
+    </div>
+  )
+}
+
+function ChoiceStage({ title, hint, children }) {
+  return (
+    <section className="choice-stage">
+      <p className="score-kicker">{hint}</p>
+      <h1>{title}</h1>
+      {children}
+    </section>
+  )
+}
+
+function ScoreEntry({ game, draft, onChange, onBack, onSave }) {
+  const phase = draft.scorePhase ?? 'result'
+  const update = (values) => onChange((current) => ({ ...current, ...values }))
+
+  const chooseResult = (result) => update({ result, scorePhase: 'scores' })
+
+  const changeScore = (key) => {
+    const teamId = draft.activeScoreTeamId ?? TEAM_A
+    const currentValue = draft.scores[teamId]
+    let nextValue = currentValue
+
+    if (key === '-10' || key === '+10') {
+      const adjustment = key === '+10' ? 10 : -10
+      nextValue = String(Math.max(0, (Number(currentValue) || 0) + adjustment))
+    } else if (key === 'clear') {
+      nextValue = ''
+    } else if (currentValue === '0') {
+      nextValue = key
+    } else if (currentValue.length < 4) {
+      nextValue = `${currentValue}${key}`
+    }
+
+    onChange((current) => ({
+      ...current,
+      scores: { ...current.scores, [teamId]: nextValue },
+    }))
+  }
+
+  const canSave =
+    draft.result && draft.scores[TEAM_A] !== '' && draft.scores[TEAM_B] !== ''
+
+  return (
+    <div className="score-game-page entry-page score-entry-page">
+      <ScoreGameHeader
+        title={draft.editingDealId ? 'Modifier les scores' : `Donne ${game.deals.length + 1}`}
+        onBack={onBack}
+      />
+      <main className="entry-content">
+        <StepIndicator current={2} />
+        <DealSummary game={game} draft={draft} />
+
+        {phase === 'result' ? (
+          <ChoiceStage title="Le contrat estâ€¦" hint="RÃ©sultat de la donne">
+            <div className="large-choice-grid two result-grid">
+              <button type="button" onClick={() => chooseResult('made')}>
+                <span aria-hidden="true">âœ“</span><strong>RÃ©ussi</strong>
+              </button>
+              <button type="button" onClick={() => chooseResult('failed')}>
+                <span aria-hidden="true">Ã—</span><strong>ChutÃ©</strong>
+              </button>
+            </div>
+          </ChoiceStage>
+        ) : (
+          <section className="manual-score-stage">
+            <div className="manual-score-heading">
+              <div>
+                <p className="score-kicker">Scores attribuÃ©s</p>
+                <h1>Saisir les points</h1>
+              </div>
+              <button type="button" onClick={() => changeScore('clear')}>Effacer</button>
+            </div>
+
+            <div className="manual-score-fields" role="group" aria-label="Ã‰quipe Ã  modifier">
+              {game.teams.map((team) => {
+                const active = draft.activeScoreTeamId === team.id
+                return (
+                  <button
+                    type="button"
+                    className={active ? 'is-active' : ''}
+                    aria-pressed={active}
+                    key={team.id}
+                    onClick={() => update({ activeScoreTeamId: team.id })}
+                  >
+                    <span>{team.name}</span>
+                    <strong>{draft.scores[team.id] === '' ? 'â€”' : formatNumber(Number(draft.scores[team.id]))}</strong>
+                  </button>
+                )
+              })}
+            </div>
+
+            <div className="score-keypad" aria-label="PavÃ© numÃ©rique">
+              {keypadRows.flat().map((key) => (
+                <button
+                  type="button"
+                  className={key.includes('10') ? 'is-adjustment' : ''}
+                  key={key}
+                  onClick={() => changeScore(key)}
+                >
+                  {key === '-10' ? 'âˆ’10' : key}
+                </button>
+              ))}
+            </div>
+
+            <button className="score-primary-button save-deal-button" type="button" disabled={!canSave} onClick={onSave}>
+              {draft.editingDealId ? 'Enregistrer les modifications' : 'Enregistrer la donne'}
+            </button>
+          </section>
+        )}
+      </main>
+    </div>
+  )
+}
+
+function DealHistory({ game, onBack, onEdit, onDelete }) {
+  const totals = getGameTotals(game)
+  return (
+    <div className="score-game-page history-page">
+      <ScoreGameHeader title="Historique" onBack={onBack} />
+      <main className="history-content">
+        <div className="history-total-strip">
+          <span>{game.teams[0].name}<strong>{formatNumber(totals[TEAM_A])}</strong></span>
+          <span>{game.teams[1].name}<strong>{formatNumber(totals[TEAM_B])}</strong></span>
+        </div>
+        <div className="deal-list">
+          {[...game.deals].reverse().map((deal, reverseIndex) => {
+            const dealNumber = game.deals.length - reverseIndex
+            return (
+              <article className="deal-history-card" key={deal.id}>
+                <div className="deal-history-number">{dealNumber}</div>
+                <div>
+                  <p>{teamName(game, deal.attackingTeamId)} Â· {deal.result === 'made' ? 'rÃ©ussi' : 'chutÃ©'}</p>
+                  <strong>{contractLabel(deal.contract)} Ã  {suitLabel(deal.suit).toLowerCase()} Â· {multiplierLabel(deal.multiplier)}</strong>
+                  <span>{game.teams[0].name} +{formatNumber(deal.scores[TEAM_A])} Â· {game.teams[1].name} +{formatNumber(deal.scores[TEAM_B])}</span>
+                </div>
+                <div className="deal-history-actions">
+                  <button type="button" onClick={() => onEdit(deal)}>Modifier</button>
+                  <button type="button" onClick={() => onDelete(deal.id)}>Supprimer</button>
+                </div>
+              </article>
+            )
+          })}
+        </div>
+        {!game.deals.length && <p className="score-empty-copy">Aucune donne enregistrÃ©e.</p>}
+      </main>
+    </div>
+  )
+}
+
+function GameSummary({ game, onBack, onDelete }) {
+  const totals = getGameTotals(game)
+  const series = getCumulativeSeries(game)
+  const stats = getGameStats(game)
+  const outcome = getGameOutcome(game)
+  const winner = outcome?.winnerTeamId
+    ? teamName(game, outcome.winnerTeamId)
+    : null
+
+  return (
+    <div className="score-page summary-page">
+      <header className="summary-hero">
+        <button className="score-text-button light" type="button" onClick={onBack}>â† Compteur</button>
+        <p className="score-kicker">Bilan de la partie</p>
+        <h1>{winner ? `${winner} remporte la partie` : 'La partie se termine Ã  Ã©galitÃ©'}</h1>
+        <p>{formatDate(game.finishedAt)} Â· {game.deals.length} donne{game.deals.length > 1 ? 's' : ''}</p>
+        <div className="summary-final-scores">
+          {game.teams.map((team) => (
+            <span key={team.id}><small>{team.name}</small><strong>{formatNumber(totals[team.id])}</strong></span>
+          ))}
+        </div>
+      </header>
+
+      <section className="summary-section">
+        <div className="summary-section-heading">
+          <p className="score-kicker">Ã‰volution</p>
+          <h2>La course aux points</h2>
+        </div>
+        <ScoreChart
+          series={series}
+          teams={game.teams}
+          target={game.endCondition.type === 'score' ? game.endCondition.target : null}
+        />
+      </section>
+
+      <section className="summary-section">
+        <div className="summary-section-heading">
+          <p className="score-kicker">En chiffres</p>
+          <h2>Le bilan</h2>
+        </div>
+        <div className="stats-grid">
+          {game.teams.map((team) => (
+            <StatCard
+              key={team.id}
+              value={`${stats.byTeam?.[team.id]?.made ?? 0} / ${stats.byTeam?.[team.id]?.failed ?? 0}`}
+              label={`${team.name} Â· rÃ©ussis / chutÃ©s`}
+            />
+          ))}
+          <StatCard value={(stats.coined ?? 0) + (stats.surcoined ?? 0)} label="coinches et surcoinches" />
+          <StatCard value={formatNumber(stats.biggestDeal?.score ?? 0)} label="points sur la plus grosse donne" />
+          <StatCard value={formatNumber(stats.maxLead?.amount ?? 0)} label="points dâ€™avance maximale" />
+        </div>
+      </section>
+
+      <section className="summary-section compact-summary-history">
+        <div className="summary-section-heading">
+          <p className="score-kicker">DÃ©tail</p>
+          <h2>Les donnes</h2>
+        </div>
+        <div className="summary-deal-list">
+          {game.deals.map((deal, index) => (
+            <div key={deal.id}>
+              <span>{index + 1}</span>
+              <p><strong>{contractLabel(deal.contract)} Â· {suitLabel(deal.suit)}</strong>{teamName(game, deal.attackingTeamId)} Â· {deal.result === 'made' ? 'rÃ©ussi' : 'chutÃ©'}</p>
+              <p>+{formatNumber(deal.scores[TEAM_A])} / +{formatNumber(deal.scores[TEAM_B])}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <button className="delete-archive-button" type="button" onClick={onDelete}>Supprimer cette partie</button>
+    </div>
+  )
+}
+
+function StatCard({ value, label }) {
+  return <article className="stat-card"><strong>{value}</strong><span>{label}</span></article>
+}
+
+function ScoreEmpty({ title, action, onAction }) {
+  return (
+    <div className="score-empty-state">
+      <span className="empty-suit" aria-hidden="true">â™£</span>
+      <h1>{title}</h1>
+      <button className="score-primary-button" type="button" onClick={onAction}>{action}</button>
+    </div>
+  )
+}
+
+function ConfirmDialog({ title, body, label, danger = false, onConfirm, onCancel }) {
+  return (
+    <div className="confirm-backdrop" role="presentation" onMouseDown={(event) => {
+      if (event.target === event.currentTarget) onCancel()
+    }}>
+      <section className="confirm-dialog" role="alertdialog" aria-modal="true" aria-labelledby="confirm-title">
+        <p className="score-kicker">Confirmation</p>
+        <h2 id="confirm-title">{title}</h2>
+        <p>{body}</p>
+        <div>
+          <button type="button" onClick={onCancel}>Annuler</button>
+          <button className={danger ? 'is-danger' : 'is-primary'} type="button" onClick={onConfirm}>{label}</button>
+        </div>
+      </section>
+    </div>
+  )
+}
